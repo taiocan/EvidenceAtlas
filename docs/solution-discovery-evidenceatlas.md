@@ -1,4 +1,4 @@
-# Solution Discovery: FactForge
+# Solution Discovery: EvidenceAtlas
 
 > This document is non-authoritative planning material.
 > It does not approve features, architecture, contracts, schemas, events, or implementation.

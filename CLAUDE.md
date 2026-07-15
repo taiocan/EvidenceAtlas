@@ -1,4 +1,4 @@
-# FactForge — CLAUDE.md
+# EvidenceAtlas — CLAUDE.md
 
 This project uses **Declarative Behavioral Architecture (DBA)** / **Intent-Driven System (IDS)** methodology.
 
