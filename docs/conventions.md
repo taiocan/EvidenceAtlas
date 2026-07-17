@@ -37,13 +37,19 @@ Examples:
 
 ## Feature IDs
 
-Format: `lowercase_underscore`
+Format: `EA-NNNN` (stable, sequential, never reused, never renamed) paired with a separate
+`lowercase_underscore` slug (readable working name — may be revised if the feature's name
+changes during discovery).
 
 Examples:
-- `add_item_to_cart`
-- `user_login`
-- `process_payment`
-- `search_listings`
+- `EA-0001` / slug `research_brief`
+
+Why separate: a feature's working name can change during Feature Brief / Discovery
+(this project's first feature was called "Topic Registry," then "Topic Brief," before
+landing on "Research Brief"). The ID stays stable across renames so file paths, registry
+entries, and review logs never need to be retroactively fixed.
+
+Filenames follow `backlog/[feature_id]-[slug].md`, e.g. `backlog/EA-0001-research_brief.md`.
 
 ## Correlation IDs
 
