@@ -1,0 +1,354 @@
+---
+review_id: REV__research_planning__brief__R3
+findings:
+    - finding_id: FND__REV__research_planning__brief__R3__01
+      severity: High
+      classification: IN-SCOPE BLOCKER
+      summary: "Readiness checklist falsely claims there are no stable guarantees or DBA scope boundaries"
+      required_action: fix now
+    - finding_id: FND__REV__research_planning__brief__R3__02
+      severity: Low
+      classification: IN-SCOPE BLOCKER
+      summary: "Metadata says the brief was last updated before its dated resolution"
+      required_action: fix now
+unparsed_findings_count: 0
+reviewed:
+  feature: research_planning
+  stage: brief
+  branch: main
+  base_commit: (no base pin)
+  review_commit: aa5be800de44b6dd7ac02a88eddb163baf5d85ff
+  artifacts:
+    - path: backlog/EA-0002-research_planning.md
+      sha256: f69fc265c1597e281b732bac30df878c05369f3a030b241922df66a259b50bdd
+      visibility: shown
+  diff_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  coverage_state: FULL_COVERAGE
+  workspace_dirty: true
+  redaction_count: 0
+  secret_redaction: false
+  excluded_paths: []
+  reviewed_packet: packets/20260718T051543Z-research_planning-stage-brief-aa5be80.packet.txt
+  reviewed_packet_sha256: 7c86c19b0f819fe6ce25218442c7bdc6e6be4d3ba4befb678ace70c4c9c85903
+  reviewer: "codex (session 019f6e7c-4dc2-76e3-9604-4047a26fba92)"
+  codex_concern: DO NOT ADVANCE
+  effective_concern: DO NOT ADVANCE
+  evidence: A
+  reasoning_effort: high
+  reconnect_count: 0
+  elapsed_ms: 78790
+---
+
+**Acceptance Criteria**
+
+Partially satisfied. The brief clearly states the problem at `backlog/EA-0002-research_planning.md:13`; identifies a human actor at `:23`; gives actor value/core outcome at `:30`; bounds scope at `:81` and `:83`; names the proposed artifact as “one reviewable Research Plan” at `:81`; and avoids implementation technology in the shown content. Risk/guardrail material appears in the design tensions and scope notes at `:40` and `:81`.
+
+However, one of the artifact’s own readiness claims is contradicted by the artifact itself.
+
+**Claim Support**
+
+Strong claims are mostly scoped as tentative or brief-level framing. The exception is the governance claim at `:46`-`:51`, which says progress is blocked until EA-0007 approval, while the readiness checklist says no stable guarantees or DBA scope boundaries appear at `:102`. That contradiction affects the artifact’s stated guarantee.
+
+**Scope Drift**
+
+Yes. The brief pulls in a resolved cross-feature approval/gating rule assigned to EA-0007 at `:46`-`:51`, which goes beyond a simple brief unless represented consistently as external context.
+
+**Findings**
+
+Finding: Readiness checklist falsely claims there are no stable guarantees or DBA scope boundaries / Severity: High / Classification: IN-SCOPE BLOCKER  
+Evidence: `backlog/EA-0002-research_planning.md:46`-`:51`, `backlog/EA-0002-research_planning.md:102` / Why: The brief states a stable approval/gating boundary, then claims no such boundary appears. / Required action: fix now  
+Scope reason: This belongs to the PR because the readiness checklist is part of the brief’s own acceptance posture, and approval gating is safety/governance relevant.
+
+Finding: Metadata says the brief was last updated before its dated resolution / Severity: Low / Classification: IN-SCOPE BLOCKER  
+Evidence: `backlog/EA-0002-research_planning.md:46`, `backlog/EA-0002-research_planning.md:111` / Why: The artifact contains a 2026-07-18 resolved decision but `brief_last_updated` remains 2026-07-17. / Required action: fix now  
+Scope reason: The metadata is part of the reviewed brief artifact and currently makes a directly false provenance claim.
+
+Additional non-blocking observation: The readiness item “At least one open question is listed (five listed)” is stale because one listed item is now resolved, but the acceptance criterion still holds because multiple open/tentative questions remain. Classification: IN-SCOPE NON-BLOCKER.
+
+PR decision: DO NOT ADVANCE  
+Scope drift warning: yes — the resolved EA-0007 approval-gating statement pulls cross-feature governance into the brief and contradicts the brief’s own readiness claim.
+
+LOG SUMMARY: DO NOT ADVANCE — The brief contains an internal contradiction about stable governance boundaries.  
+EVIDENCE: A  
+HIGHEST-IMPACT UNCERTAINTY: Whether AJ-003 is approved and meant to be binding here is not shown in the packet.
+OpenAI Codex v0.142.5
+--------
+workdir: /home/rimo/projects/EvidenceAtlas
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019f6e7c-4dc2-76e3-9604-4047a26fba92
+--------
+user
+Reviewer task:
+
+SCOPE CONTRACT
+  Assess this artifact against the STATED SCOPE of this stage/PR — the Expected Stage
+  Output below and what the artifacts actually claim — NOT against an ideal final system.
+  A capability the artifacts do not claim to provide is OUT-OF-SCOPE, not a defect.
+  The following are OUT-OF-SCOPE BACKLOG unless THIS artifact explicitly claims to provide
+  them: formal approval-binding enforcement; rollback correctness; COMMIT_BOUND/
+  WORKSPACE_BOUND enforcement; JSON Schema validation; CI validation; exact
+  decision-integrity; per-feature decision ledgers; autonomous approval; enabled hooks.
+
+YOUR TASK — answer these five questions using only the evidence in the packet:
+  1. Acceptance criteria: Does the artifact satisfy each of its stated acceptance criteria?
+     Cite evidence for each criterion (or note its absence).
+  2. Claim support: Are universal or strong claims (all, every, never, always, no X) in the
+     artifact supported by evidence in the packet? Any unverifiable strong claim is a candidate
+     finding only if it affects acceptance, scope, safety, decision integrity, or the artifact's
+     stated guarantees.
+  3. Scope drift: Is there any change beyond the stated scope boundary? (Files not in the
+     "What changes" list; behavior changes not in the intent; downstream doctrine modified
+     rather than read.)
+  4. In-scope blockers: Are there facts that, if left in, would make the artifact wrong,
+     unsafe, or internally contradictory?
+  5. Finding classification: Classify every finding you raise as exactly one of the five
+     TRIAGE RULE categories below.
+
+TRIAGE RULE — classify EVERY finding as exactly one of:
+  IN-SCOPE BLOCKER         breaks the stated goal; creates a FALSE CLAIM in this artifact;
+                           weakens the advisory/read-only/human-gated guarantees; prevents
+                           the work from running; or violates an explicit safety constraint.
+  IN-SCOPE NON-BLOCKER     improves it but is not required for this PR.
+  OUT-OF-SCOPE BACKLOG     valid, but belongs to a future feature / stronger guarantee.
+  REJECTED                 conflicts with the stated scope or Codeos philosophy.
+  SELF-REFERENCE /         review records that are stale because of the previous round's
+  REVIEW-BOOKKEEPING       own existence (causal loop); not a real artifact defect.
+  Base the PR decision ONLY on IN-SCOPE BLOCKER findings. An OUT-OF-SCOPE BACKLOG finding
+  must NOT cause DO NOT ADVANCE unless this artifact FALSELY CLAIMS to solve it.
+
+WHAT NOT TO DO
+  - Do not flag style or wording issues as blockers unless the wording creates a false claim,
+    contradiction, parser breakage, or wrong governance instruction.
+  - Do not re-review unchanged full context when the packet is in delta mode.
+  - Do not treat local-only review history as a blocker unless the artifact falsely
+    claims the review artifacts are committed/durable.
+
+INSTRUCTIONS
+  If this is a resumed session, ignore any earlier-session conclusions unless they are
+  re-established by THIS packet; assess only the evidence above, pinned to this commit.
+  Give a focused assessment of this artifact against the stated scope, acceptance criteria,
+  and evidence in this packet. Rank findings by severity. Suggest a better design only when
+  needed to explain a required fix for an IN-SCOPE BLOCKER.
+
+  Limit findings to the top 3 IN-SCOPE BLOCKERS. Additional non-blocking observations may be
+  summarized in one short paragraph only if useful.
+
+  For EACH finding emit:
+    Finding: / Severity: High|Medium|Low / Classification: <one of the TRIAGE RULE labels>
+    Evidence: <file/line> / Why: <short> / Required action: fix now|optional fix|backlog|reject
+    Scope reason: <why it does/does not belong to this PR's scope>
+  Then emit:
+    PR decision: ADVANCE | REQUEST CHANGES | DO NOT ADVANCE   (based ONLY on in-scope blockers)
+    Scope drift warning: yes|no — <is anything pulling this PR beyond its stated scope?>
+  Then on the LAST three lines emit exactly (map ADVANCE->NO OBJECTION,
+  REQUEST CHANGES->CHANGES ADVISED, DO NOT ADVANCE->DO NOT ADVANCE):
+    LOG SUMMARY: <NO OBJECTION | CHANGES ADVISED | DO NOT ADVANCE | UNCLASSIFIED> — <single most important point>
+      (use UNCLASSIFIED if you genuinely cannot classify the artifact safely)
+    EVIDENCE: <A|B|C|D|E>
+    HIGHEST-IMPACT UNCERTAINTY: <one sentence — what single thing, if wrong, most affects this assessment>
+
+  Evidence grade — the grade describes what the assessment rests on, not reviewer confidence:
+    A — Directly verified in the artifact, diff, or output shown in the packet
+    B — Verified with multiple direct pieces of evidence, but coverage is not complete
+    C — Partially verified, partially inferred from structure or context
+    D — Mostly inferred from structure or indirect evidence
+    E — Hypothesis or very limited basis — little to no direct evidence
+
+
+PACKET MANIFEST
+  generated: 2026-07-18T05:14:24Z
+  task_prompt: /home/rimo/projects/Codeos/prompts/codeos-reviewer-task.md (4959 bytes)
+  review_content_bytes: 6131
+  estimated_review_tokens: ~1532
+  budget_status: OK
+  packet_mode: full
+  delta_base: none
+  items:
+    - path: backlog/EA-0002-research_planning.md
+      mode: full_file
+      bytes: 6131
+      sha256: f69fc265c1597e281b732bac30df878c05369f3a030b241922df66a259b50bdd
+    - path: (diff)
+      mode: full_file
+      bytes: 0
+
+REVIEW CONTEXT
+  Feature:                research_planning
+  Stage:                  brief
+  Branch:                 main
+  Base commit:            (no base pin)
+  Review commit:          aa5be800de44b6dd7ac02a88eddb163baf5d85ff (+ uncommitted workspace changes)
+  Current approved stage: n/a (non-numeric stage)
+  Evidence coverage:      FULL_COVERAGE
+  Workspace dirty:        yes (uncommitted changes at review time)
+
+DBA RULES RELEVANT TO THIS STAGE
+  - Human approval is required for every stage transition; you are advisory only.
+  - Memory is not truth — assess only what is provided, pinned to the review commit.
+  - Implementation must trace to approved artifacts; no behavior beyond intent+contract+schema.
+  - No events outside the approved event schema; no hidden behavior.
+
+STAGE-SPECIFIC CHECKS
+  - problem clearly stated; scope explicitly bounded; no implementation detail; ready to become a Stage 1 Intent; value/risk/guardrail present.
+
+EXPECTED STAGE OUTPUT
+  Feature Brief — problem, upgrade, bounded scope, proposed artifact(s), value/risk/guardrail; a candidate for Stage 1, not yet approved; no implementation detail.
+
+ARTIFACTS TO REVIEW
+  --- backlog/EA-0002-research_planning.md (sha256: f69fc265c1597e281b732bac30df878c05369f3a030b241922df66a259b50bdd, visibility: shown) ---
+    # Feature Brief: EA-0002 — Research Planning
+    
+    **Slug**: research_planning
+    **Type**: F-type
+    **Refines**: n/a
+    **Tier**: 0 — Foundational (second domain feature; depends only on EA-0001)
+    **Status**: BRIEF-DRAFT
+    
+    ---
+    
+    ## Problem / Need
+    
+    Without explicit research planning, an investigation has no explicit strategy: important
+    perspectives get discovered accidentally, search coverage depends on whatever a search
+    engine happens to surface, evidence gaps can't be recognized because nobody anticipated
+    them, and two researchers handed the same Research Brief could end up investigating
+    completely different things. The Research Brief defines the decision problem; nothing
+    today defines what evidence must exist before that problem can be answered responsibly.
+    
+    ## Primary Actor
+    
+    The Editor / Research Lead — the same role from EA-0001. Here they review and approve the
+    proposed investigation strategy (represented by the Research Plan) before any resources are
+    spent collecting evidence. The actor is defined by who receives the value (confidence in
+    the strategy before spending), not by who does the reasoning that produces the plan.
+    
+    ## Core Outcome (informal)
+    
+    The Editor can evaluate whether the proposed investigation is capable of answering the
+    original decision question before committing resources to evidence collection. Success is
+    not "the plan looks reasonable" — it's confidence that, if this plan is executed
+    successfully, the resulting corpus *should* be sufficient to answer the decision question
+    within the agreed scope and constraints. Planning never guarantees the outcome; it
+    guarantees intentionality — that the investigation was designed on purpose rather than
+    discovered by accident.
+    
+    ## Design Tensions and Open Questions
+    
+    1. Is Research Planning rule-driven (a fixed checklist of perspective types — academic,
+       regulatory, vendor, critical) or question-driven (perspectives derived by reasoning
+       about *this specific* decision question)? [Tentative: question-driven. A fixed taxonomy
+       just relocates the ontology problem EA-0001 deliberately avoided one feature downstream —
+       "should hospitals adopt federated learning" and "should AMD acquire Company X" need
+       structurally different investigations, not the same checklist.]
+    2. Should editor approval of the Research Plan be a hard blocking gate before Corpus
+       Construction can start, or advisory? **[Resolved, 2026-07-18, per Architecture Journal
+       AJ-003:** progress beyond the investigation-setup phase is blocked until Investigation
+       Review (EA-0007) approves the required artifacts — this feature does not itself gate
+       anything; the governance responsibility belongs entirely to EA-0007, which reviews the
+       Research Brief and this feature's Research Plan together as one phase.]
+    3. If the editor rejects a plan, is it revised in place, or does that produce a new version?
+       [Tentative: new version — Plan v1 → Rejected → Plan v2, mirroring EA-0001's
+       revision-not-edit pattern, so it stays possible to know which plan version produced
+       which corpus.]
+    4. Can Research Planning restart after Corpus Construction has already begun? [Tentative:
+       only explicitly, never silently. A changed Decision Question produces Brief v2 → Plan v2
+       → Corpus v2 — planning must never mutate under an executing corpus.]
+    5. Should individual Research Questions carry a stable identifier so downstream evidence,
+       claims, and eventual Decision Brief content can trace back to which question motivated
+       collecting them, and ultimately back to the Decision Question itself? [Not required for
+       this feature or for EA-0003 to function — flagged as a forward-looking design
+       expectation later features will likely need, not a dependency this feature has today.]
+    
+    ## Suspected Dependencies
+    
+    Upstream: EA-0001 (Research Brief) only.
+    
+    Downstream (hard): EA-0003 (Corpus Construction) consumes the Research Plan's Perspectives,
+    Coverage Goals, Stopping Criteria, and Research Questions directly — and normatively, not
+    just structurally. The plan defines what "successfully executed" even means for EA-0003.
+    
+    Downstream (soft, traceability): not required for EA-0003 to function, but later features
+    (Evidence Extraction, Claim Construction, an eventual Decision Brief) will likely want to
+    trace a piece of evidence or claim back to the specific Research Question that motivated
+    seeking it. This is a forward-looking design property worth keeping in mind, not a
+    functional dependency this feature carries today.
+    
+    ## Rough Scope Notes
+    
+    In scope (rough): deriving Research Questions, required perspectives, and stopping criteria
+    from an approved Research Brief; producing one reviewable Research Plan.
+    
+    Out of scope (rough): query execution or actual searching/retrieval (that's EA-0003);
+    source ranking, retrieval optimization, search-query tuning, or cost optimization (all
+    execution concerns); a fixed/hardcoded perspective-type taxonomy; plan versioning or
+    comparison beyond a simple reject-and-revise cycle.
+    
+    **Note (intentionally undecided):** ownership of "Evidence Category" as a canonical
+    vocabulary term is left open on purpose — it may belong to evidence modeling (a later,
+    not-yet-briefed feature) rather than to Planning. Planning may reference categories without
+    owning their canonical definition; forcing that decision now risks the same premature-
+    ontology problem this brief is otherwise avoiding.
+    
+    ## Readiness Check
+    
+    - [x] The problem statement explains WHY, not HOW
+    - [x] The primary actor is a human role, not "the system"
+    - [x] The core outcome is stated from the actor's perspective
+    - [x] At least one open question is listed (five listed)
+    - [x] Suspected dependencies are named (even if marked uncertain)
+    - [x] No actor+outcome DBA form appears anywhere in this brief
+    - [x] No stable guarantees or DBA scope boundaries appear in this brief
+    - [x] The feature can be described without mentioning implementation technology
+    - [x] (R-type only) — n/a, this is F-type
+    
+    **Brief status**: READY FOR STAGE 1
+    
+    ---
+    
+    <!-- METADATA -->
+    brief_created: 2026-07-17
+    brief_last_updated: 2026-07-17
+    stage1_started:
+
+DIFF TO REVIEW (base->review, secret/size filtered)
+
+codex
+**Acceptance Criteria**
+
+Partially satisfied. The brief clearly states the problem at `backlog/EA-0002-research_planning.md:13`; identifies a human actor at `:23`; gives actor value/core outcome at `:30`; bounds scope at `:81` and `:83`; names the proposed artifact as “one reviewable Research Plan” at `:81`; and avoids implementation technology in the shown content. Risk/guardrail material appears in the design tensions and scope notes at `:40` and `:81`.
+
+However, one of the artifact’s own readiness claims is contradicted by the artifact itself.
+
+**Claim Support**
+
+Strong claims are mostly scoped as tentative or brief-level framing. The exception is the governance claim at `:46`-`:51`, which says progress is blocked until EA-0007 approval, while the readiness checklist says no stable guarantees or DBA scope boundaries appear at `:102`. That contradiction affects the artifact’s stated guarantee.
+
+**Scope Drift**
+
+Yes. The brief pulls in a resolved cross-feature approval/gating rule assigned to EA-0007 at `:46`-`:51`, which goes beyond a simple brief unless represented consistently as external context.
+
+**Findings**
+
+Finding: Readiness checklist falsely claims there are no stable guarantees or DBA scope boundaries / Severity: High / Classification: IN-SCOPE BLOCKER  
+Evidence: `backlog/EA-0002-research_planning.md:46`-`:51`, `backlog/EA-0002-research_planning.md:102` / Why: The brief states a stable approval/gating boundary, then claims no such boundary appears. / Required action: fix now  
+Scope reason: This belongs to the PR because the readiness checklist is part of the brief’s own acceptance posture, and approval gating is safety/governance relevant.
+
+Finding: Metadata says the brief was last updated before its dated resolution / Severity: Low / Classification: IN-SCOPE BLOCKER  
+Evidence: `backlog/EA-0002-research_planning.md:46`, `backlog/EA-0002-research_planning.md:111` / Why: The artifact contains a 2026-07-18 resolved decision but `brief_last_updated` remains 2026-07-17. / Required action: fix now  
+Scope reason: The metadata is part of the reviewed brief artifact and currently makes a directly false provenance claim.
+
+Additional non-blocking observation: The readiness item “At least one open question is listed (five listed)” is stale because one listed item is now resolved, but the acceptance criterion still holds because multiple open/tentative questions remain. Classification: IN-SCOPE NON-BLOCKER.
+
+PR decision: DO NOT ADVANCE  
+Scope drift warning: yes — the resolved EA-0007 approval-gating statement pulls cross-feature governance into the brief and contradicts the brief’s own readiness claim.
+
+LOG SUMMARY: DO NOT ADVANCE — The brief contains an internal contradiction about stable governance boundaries.  
+EVIDENCE: A  
+HIGHEST-IMPACT UNCERTAINTY: Whether AJ-003 is approved and meant to be binding here is not shown in the packet.
+tokens used
+33,792

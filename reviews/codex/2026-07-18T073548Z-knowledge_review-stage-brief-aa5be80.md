@@ -1,0 +1,951 @@
+---
+review_id: REV__knowledge_review__brief__R2
+findings: []
+unparsed_findings_count: 0
+reviewed:
+  feature: knowledge_review
+  stage: brief
+  branch: main
+  base_commit: (no base pin)
+  review_commit: aa5be800de44b6dd7ac02a88eddb163baf5d85ff
+  artifacts:
+    - path: backlog/EA-0008-knowledge_review.md
+      sha256: fdd794cfb039152c5db156acddd38cf03a5f0d6e2dccbff1b5e0e5b5b76bb790
+      visibility: shown
+    - path: backlog/EA-0004-evidence_extraction.md
+      sha256: 42739674a4d4ca824c8d90b2121736e82f9724687eb138a1574a5b71c03b658a
+      visibility: shown
+    - path: backlog/EA-0005-ambiguity_construction.md
+      sha256: a4134a75cdf2bdaf1eaad55943eb2ab0def9c96cac5da9cd595dfe105f2cb85a
+      visibility: shown
+    - path: backlog/EA-0006-claim_construction.md
+      sha256: 47c1199b1410ae2e550ba742141e6c717cddb3bacb92d95db946cf1c9339d080
+      visibility: shown
+  diff_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  coverage_state: FULL_COVERAGE
+  workspace_dirty: true
+  redaction_count: 0
+  secret_redaction: false
+  excluded_paths: []
+  reviewed_packet: packets/20260718T073548Z-knowledge_review-stage-brief-aa5be80.packet.txt
+  reviewed_packet_sha256: da89b53fc0975428bf0609d56a76cd9132260a79e831cc8f7cc1b3f903b1534a
+  reviewer: "codex (session 019f73b1-d534-7052-8a04-557f4b5354ed)"
+  codex_concern: NO OBJECTION
+  effective_concern: NO OBJECTION
+  evidence: A
+  reasoning_effort: high
+  reconnect_count: 0
+  elapsed_ms: 59489
+---
+
+**Acceptance Criteria**
+
+1. Problem clearly stated: satisfied. EA-0008 identifies the missing checkpoint between AI-produced candidates and the trusted knowledge base, including the risk of unreviewed or hallucinated material entering publication flow (`backlog/EA-0008-knowledge_review.md:14-20`).
+
+2. Upgrade/value stated: satisfied. The upgrade is a recurring Knowledge Review activity across evidence, claims, and ambiguities, so reviewers can evaluate prepared candidate knowledge rather than reconstructing source material or reasoning themselves (`backlog/EA-0008-knowledge_review.md:35-41`).
+
+3. Bounded scope: satisfied. In-scope review responsibilities and out-of-scope candidate production, investigation approval, publication approval, and Policy Registry definition are explicitly separated (`backlog/EA-0008-knowledge_review.md:91-100`).
+
+4. Proposed artifact present: satisfied. The brief proposes a Knowledge Review record per decision, with reviewed artifact, outcome, and rationale, while deferring exact shape to Stage 1/2 (`backlog/EA-0008-knowledge_review.md:43-48`).
+
+5. No implementation detail / ready for Stage 1: satisfied. The readiness checklist claims no implementation technology and marks the brief ready for Stage 1 (`backlog/EA-0008-knowledge_review.md:102-115`).
+
+**Claim Support**
+
+Strong claims are supported enough for brief scope. The unified Knowledge Reviewer role is mirrored in EA-0004, EA-0005, and EA-0006 corrections (`backlog/EA-0004-evidence_extraction.md:23-30`, `backlog/EA-0005-ambiguity_construction.md:23-30`, `backlog/EA-0006-claim_construction.md:23-31`). The claim that EA-0008 consumes all three candidate artifact streams is supported by those briefs’ dependency sections (`backlog/EA-0004-evidence_extraction.md:110-124`, `backlog/EA-0005-ambiguity_construction.md:93-95`, `backlog/EA-0006-claim_construction.md:89-90`). AJ-003 itself is not in the packet, but the Policy Registry dependency is explicitly marked “recorded as a belief, not yet verified,” so that does not create a false guarantee (`backlog/EA-0008-knowledge_review.md:75-77`).
+
+**Scope Drift**
+
+No scope drift found. The supporting edits to EA-0004/0005/0006 are within the artifact’s stated actor-consolidation and dependency-alignment claim (`backlog/EA-0008-knowledge_review.md:24-26`) and do not introduce implementation behavior.
+
+**In-Scope Blockers**
+
+No IN-SCOPE BLOCKER findings.
+
+Non-blocking observation: EA-0008 uses broad outcome shorthand “accept/reject/return-for-revision” for the proposed record while later distinguishing Ambiguity outcomes as “accept/return-for-more-analysis” (`backlog/EA-0008-knowledge_review.md:43-46`, `backlog/EA-0008-knowledge_review.md:56-60`). Because the brief says exact shape is Stage 1/2 work, this is not blocking, but Stage 1 should normalize outcome vocabulary by artifact type.
+
+PR decision: ADVANCE  
+Scope drift warning: no — the packet stays within brief-stage artifact definition and related brief alignment.
+
+LOG SUMMARY: NO OBJECTION — EA-0008 now includes the proposed review-record artifact and satisfies brief-stage criteria with no in-scope blockers.
+EVIDENCE: A
+HIGHEST-IMPACT UNCERTAINTY: AJ-003 is referenced but not included, so its architecture-journal support is accepted only through the shown briefs.
+OpenAI Codex v0.142.5
+--------
+workdir: /home/rimo/projects/EvidenceAtlas
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019f73b1-d534-7052-8a04-557f4b5354ed
+--------
+user
+Reviewer task:
+
+SCOPE CONTRACT
+  Assess this artifact against the STATED SCOPE of this stage/PR — the Expected Stage
+  Output below and what the artifacts actually claim — NOT against an ideal final system.
+  A capability the artifacts do not claim to provide is OUT-OF-SCOPE, not a defect.
+  The following are OUT-OF-SCOPE BACKLOG unless THIS artifact explicitly claims to provide
+  them: formal approval-binding enforcement; rollback correctness; COMMIT_BOUND/
+  WORKSPACE_BOUND enforcement; JSON Schema validation; CI validation; exact
+  decision-integrity; per-feature decision ledgers; autonomous approval; enabled hooks.
+
+YOUR TASK — answer these five questions using only the evidence in the packet:
+  1. Acceptance criteria: Does the artifact satisfy each of its stated acceptance criteria?
+     Cite evidence for each criterion (or note its absence).
+  2. Claim support: Are universal or strong claims (all, every, never, always, no X) in the
+     artifact supported by evidence in the packet? Any unverifiable strong claim is a candidate
+     finding only if it affects acceptance, scope, safety, decision integrity, or the artifact's
+     stated guarantees.
+  3. Scope drift: Is there any change beyond the stated scope boundary? (Files not in the
+     "What changes" list; behavior changes not in the intent; downstream doctrine modified
+     rather than read.)
+  4. In-scope blockers: Are there facts that, if left in, would make the artifact wrong,
+     unsafe, or internally contradictory?
+  5. Finding classification: Classify every finding you raise as exactly one of the five
+     TRIAGE RULE categories below.
+
+TRIAGE RULE — classify EVERY finding as exactly one of:
+  IN-SCOPE BLOCKER         breaks the stated goal; creates a FALSE CLAIM in this artifact;
+                           weakens the advisory/read-only/human-gated guarantees; prevents
+                           the work from running; or violates an explicit safety constraint.
+  IN-SCOPE NON-BLOCKER     improves it but is not required for this PR.
+  OUT-OF-SCOPE BACKLOG     valid, but belongs to a future feature / stronger guarantee.
+  REJECTED                 conflicts with the stated scope or Codeos philosophy.
+  SELF-REFERENCE /         review records that are stale because of the previous round's
+  REVIEW-BOOKKEEPING       own existence (causal loop); not a real artifact defect.
+  Base the PR decision ONLY on IN-SCOPE BLOCKER findings. An OUT-OF-SCOPE BACKLOG finding
+  must NOT cause DO NOT ADVANCE unless this artifact FALSELY CLAIMS to solve it.
+
+WHAT NOT TO DO
+  - Do not flag style or wording issues as blockers unless the wording creates a false claim,
+    contradiction, parser breakage, or wrong governance instruction.
+  - Do not re-review unchanged full context when the packet is in delta mode.
+  - Do not treat local-only review history as a blocker unless the artifact falsely
+    claims the review artifacts are committed/durable.
+
+INSTRUCTIONS
+  If this is a resumed session, ignore any earlier-session conclusions unless they are
+  re-established by THIS packet; assess only the evidence above, pinned to this commit.
+  Give a focused assessment of this artifact against the stated scope, acceptance criteria,
+  and evidence in this packet. Rank findings by severity. Suggest a better design only when
+  needed to explain a required fix for an IN-SCOPE BLOCKER.
+
+  Limit findings to the top 3 IN-SCOPE BLOCKERS. Additional non-blocking observations may be
+  summarized in one short paragraph only if useful.
+
+  For EACH finding emit:
+    Finding: / Severity: High|Medium|Low / Classification: <one of the TRIAGE RULE labels>
+    Evidence: <file/line> / Why: <short> / Required action: fix now|optional fix|backlog|reject
+    Scope reason: <why it does/does not belong to this PR's scope>
+  Then emit:
+    PR decision: ADVANCE | REQUEST CHANGES | DO NOT ADVANCE   (based ONLY on in-scope blockers)
+    Scope drift warning: yes|no — <is anything pulling this PR beyond its stated scope?>
+  Then on the LAST three lines emit exactly (map ADVANCE->NO OBJECTION,
+  REQUEST CHANGES->CHANGES ADVISED, DO NOT ADVANCE->DO NOT ADVANCE):
+    LOG SUMMARY: <NO OBJECTION | CHANGES ADVISED | DO NOT ADVANCE | UNCLASSIFIED> — <single most important point>
+      (use UNCLASSIFIED if you genuinely cannot classify the artifact safely)
+    EVIDENCE: <A|B|C|D|E>
+    HIGHEST-IMPACT UNCERTAINTY: <one sentence — what single thing, if wrong, most affects this assessment>
+
+  Evidence grade — the grade describes what the assessment rests on, not reviewer confidence:
+    A — Directly verified in the artifact, diff, or output shown in the packet
+    B — Verified with multiple direct pieces of evidence, but coverage is not complete
+    C — Partially verified, partially inferred from structure or context
+    D — Mostly inferred from structure or indirect evidence
+    E — Hypothesis or very limited basis — little to no direct evidence
+
+
+PACKET MANIFEST
+  generated: 2026-07-18T07:34:49Z
+  task_prompt: /home/rimo/projects/Codeos/prompts/codeos-reviewer-task.md (4959 bytes)
+  review_content_bytes: 33301
+  estimated_review_tokens: ~8325
+  budget_status: OK
+  packet_mode: full
+  delta_base: none
+  items:
+    - path: backlog/EA-0008-knowledge_review.md
+      mode: full_file
+      bytes: 6641
+      sha256: fdd794cfb039152c5db156acddd38cf03a5f0d6e2dccbff1b5e0e5b5b76bb790
+    - path: backlog/EA-0004-evidence_extraction.md
+      mode: full_file
+      bytes: 11079
+      sha256: 42739674a4d4ca824c8d90b2121736e82f9724687eb138a1574a5b71c03b658a
+    - path: backlog/EA-0005-ambiguity_construction.md
+      mode: full_file
+      bytes: 7980
+      sha256: a4134a75cdf2bdaf1eaad55943eb2ab0def9c96cac5da9cd595dfe105f2cb85a
+    - path: backlog/EA-0006-claim_construction.md
+      mode: full_file
+      bytes: 7601
+      sha256: 47c1199b1410ae2e550ba742141e6c717cddb3bacb92d95db946cf1c9339d080
+    - path: (diff)
+      mode: full_file
+      bytes: 0
+
+REVIEW CONTEXT
+  Feature:                knowledge_review
+  Stage:                  brief
+  Branch:                 main
+  Base commit:            (no base pin)
+  Review commit:          aa5be800de44b6dd7ac02a88eddb163baf5d85ff (+ uncommitted workspace changes)
+  Current approved stage: n/a (non-numeric stage)
+  Evidence coverage:      FULL_COVERAGE
+  Workspace dirty:        yes (uncommitted changes at review time)
+
+DBA RULES RELEVANT TO THIS STAGE
+  - Human approval is required for every stage transition; you are advisory only.
+  - Memory is not truth — assess only what is provided, pinned to the review commit.
+  - Implementation must trace to approved artifacts; no behavior beyond intent+contract+schema.
+  - No events outside the approved event schema; no hidden behavior.
+
+STAGE-SPECIFIC CHECKS
+  - problem clearly stated; scope explicitly bounded; no implementation detail; ready to become a Stage 1 Intent; value/risk/guardrail present.
+
+EXPECTED STAGE OUTPUT
+  Feature Brief — problem, upgrade, bounded scope, proposed artifact(s), value/risk/guardrail; a candidate for Stage 1, not yet approved; no implementation detail.
+
+ARTIFACTS TO REVIEW
+  --- backlog/EA-0008-knowledge_review.md (sha256: fdd794cfb039152c5db156acddd38cf03a5f0d6e2dccbff1b5e0e5b5b76bb790, visibility: shown) ---
+    # Feature Brief: EA-0008 — Knowledge Review
+    
+    **Slug**: knowledge_review
+    **Type**: F-type
+    **Refines**: n/a
+    **Tier**: 0 — Foundational (governance feature; consumes EA-0004, EA-0005, and EA-0006
+    directly, and recurs across the pipeline rather than firing once)
+    **Status**: BRIEF-DRAFT
+    
+    ---
+    
+    ## Problem / Need
+    
+    Without a way to evaluate whether extracted evidence, synthesized claims, and structured
+    ambiguities actually represent trustworthy knowledge, unreviewed or possibly-hallucinated
+    material could silently enter the pipeline and eventually reach publication. The entire
+    evidence-first premise of this project depends on a real checkpoint existing between "the
+    AI produced a candidate" and "this is part of the trusted knowledge base" — right now
+    three separate transformation features (EA-0004, EA-0005, EA-0006) each assume that
+    checkpoint exists without any feature actually owning it.
+    
+    ## Primary Actor
+    
+    The **Knowledge Reviewer** — a single role that replaces the separately-named "Evidence
+    Reviewer," "Ambiguity Reviewer," and "Claim Reviewer" used when EA-0004, EA-0005, and
+    EA-0006 were briefed (those briefs are being corrected to reflect this consolidation). The
+    underlying review question still differs by what's under review — is this excerpt and
+    interpretation faithful to its source; is this synthesis adequately supported, bounded, and
+    decision-relevant; does this structure a genuine, decision-relevant disagreement — but it's
+    one role asking variants of one broader question: can this be trusted as part of the
+    knowledge base.
+    
+    ## Core Outcome (informal)
+    
+    The Knowledge Reviewer can evaluate a proposed piece of knowledge — Candidate Evidence, a
+    Candidate Claim, or a constructed Ambiguity — without needing to re-derive or reconstruct
+    the underlying material or reasoning themselves, since the feature that produced it has
+    already prepared it for review (excerpt plus interpretation and rationale; synthesis with
+    supporting/limiting evidence attached; structured competing positions with their evidence).
+    This is a recurring governance activity applied at multiple points across the pipeline as
+    material arrives, not a single point-in-time gate.
+    
+    **Proposed artifact:** a Knowledge Review record per decision — naming which artifact was
+    reviewed (Candidate Evidence, Candidate Claim, or Ambiguity), the outcome
+    (accept/reject/return-for-revision), and the rationale. Exact shape is Stage 1/2 work; this
+    brief only proposes that such a record is this feature's output, one per decision made
+    (added 2026-07-18, so EA-0011 (Review Registry) has a supported canonical source to
+    aggregate).
+    
+    ## Design Tensions and Open Questions
+    
+    1. **This is recurring, not a single gate.** [Resolved, per Architecture Journal AJ-003:
+       this feature fires repeatedly — once evidence is extracted, once claims are synthesized,
+       once ambiguities are constructed — under one policy umbrella, rather than being one
+       checkpoint that happens once per investigation.]
+    2. **Does this feature own the accept/reject/return-for-revision decisions previously
+       assumed by EA-0004 and EA-0006?** [Resolved: yes. This is where those "assumptions
+       requiring validation" become owned decisions — accept/reject/revise on Candidate
+       Evidence; accept/reject/revise on Candidate Claims; accept/return-for-more-analysis on
+       constructed Ambiguities. This feature also owns routing a human-initiated suspected-
+       disagreement referral to EA-0005 (previously described as something "Gate 1" did in
+       EA-0004's brief).]
+    3. **Does review of one artifact type block progress on others?** [Not resolved — must all
+       evidence for a Research Question be accepted before Claim Construction can run on any of
+       it, or can synthesis proceed incrementally as evidence is accepted in batches? A genuine
+       open question for Stage 1/2, not decided here.]
+    4. **Granularity and blocking-vs-advisory are policy-driven, not structural.** [Resolved,
+       per AJ-003 and the discovery doc's "Policy centralization" finding: this feature consults
+       a not-yet-briefed Policy Registry for review strategy (per-item, per-bundle, sampled,
+       blocking, advisory, risk-based skipping) rather than hardcoding one strategy for every
+       artifact type.]
+    
+    ## Suspected Dependencies
+    
+    Upstream (hard): EA-0004 (Candidate Evidence), EA-0005 (constructed Ambiguities), and
+    EA-0006 (Candidate Claims) — all three consumed directly. Also a not-yet-briefed Policy
+    Registry feature, consulted for review strategy — recorded as a belief, not yet verified.
+    
+    Note on relationship shape: this is not a simple one-directional consumption. This
+    feature's Accepted Evidence output feeds EA-0006 (Claim Construction), which produces
+    Candidate Claims that come back to this same feature for review — a recurring, staged
+    back-and-forth across the pipeline, not a cycle within a single pass.
+    
+    Downstream (hard): EA-0006 depends on this feature's Accepted Evidence output (per the
+    correction already made to EA-0004's brief).
+    
+    Downstream (soft): eventual Publishing views and EA-0009 (Publication Review, once briefed)
+    will likely consume this feature's accepted knowledge base (Accepted Evidence, Accepted
+    Claims, resolved Ambiguities) as their source of truth.
+    
+    ## Rough Scope Notes
+    
+    In scope (rough): evaluating Candidate Evidence, Candidate Claims, and Ambiguities for
+    trustworthiness, using the distinct question appropriate to each; owning accept/reject/
+    return-for-revision outcomes for each; routing human-initiated disagreement referrals to
+    Ambiguity Construction; consulting the Policy Registry for review strategy.
+    
+    Out of scope (rough): producing any of the underlying candidates itself (each transformation
+    feature's own job); investigation-level approval (EA-0007's job); publication-level approval
+    (EA-0009's job, once briefed); defining the Policy Registry itself.
+    
+    ## Readiness Check
+    
+    - [x] The problem statement explains WHY, not HOW
+    - [x] The primary actor is a human role, not "the system"
+    - [x] The core outcome is stated from the actor's perspective
+    - [x] At least one open question is listed (four listed)
+    - [x] Suspected dependencies are named (even if marked uncertain)
+    - [x] No actor+outcome DBA form appears anywhere in this brief
+    - [x] No stable guarantees or DBA scope boundaries appear in this brief (scope notes are
+          informal guardrails, not formal DBA contract language)
+    - [x] The feature can be described without mentioning implementation technology
+    - [x] (R-type only) — n/a, this is F-type
+    
+    **Brief status**: READY FOR STAGE 1
+    
+    ---
+    
+    <!-- METADATA -->
+    brief_created: 2026-07-17
+    brief_last_updated: 2026-07-18
+    stage1_started:
+
+  --- backlog/EA-0004-evidence_extraction.md (sha256: 42739674a4d4ca824c8d90b2121736e82f9724687eb138a1574a5b71c03b658a, visibility: shown) ---
+    # Feature Brief: EA-0004 — Evidence Extraction
+    
+    **Slug**: evidence_extraction
+    **Type**: F-type
+    **Refines**: n/a
+    **Tier**: 0 — Foundational (fourth domain feature; depends only on EA-0003)
+    **Status**: BRIEF-DRAFT
+    
+    ---
+    
+    ## Problem / Need
+    
+    A research corpus is just collected material — nobody can yet point to which passage
+    supports which idea, or why it was worth collecting at all. Without this feature, every
+    downstream stage would have to independently rediscover relevant passages, interpret them,
+    and reconstruct why they matter to the investigation: evidence selection becomes
+    inconsistent across attempts, traceability back to source material becomes fragile, and
+    claim construction would have to start from raw documents instead of explicit, reviewable
+    evidence.
+    
+    ## Primary Actor
+    
+    **Correction (2026-07-18, per Architecture Journal AJ-003):** the actor for this feature is
+    the **Knowledge Reviewer** — a single role that also covers what EA-0005 and EA-0006
+    separately called "Ambiguity Reviewer" and "Claim Reviewer." (This section previously named
+    a standalone "Evidence Reviewer"; that name is retired in favor of the unified role.) The
+    Knowledge Reviewer's question here specifically is whether a proposed candidate evidence
+    item is suitable to enter the project's evidence base — a different question from what the
+    same role asks when reviewing a claim or an ambiguity, but the same role, not a separate
+    actor. Today, without this feature, that evaluation can't happen at all — the reviewer
+    would have to search raw documents, choose passages, interpret them, and reconstruct
+    relevance themselves, which is exactly the duplicated, inconsistent work this feature
+    exists to remove.
+    
+    ## Core Outcome (informal)
+    
+    The Knowledge Reviewer can efficiently determine whether a proposed candidate evidence item
+    is suitable to become part of the project's evidence base — without having to reconstruct
+    the research process or rediscover the supporting material themselves. The feature has
+    already done the expensive preparation (locating the passage, capturing it faithfully,
+    interpreting it, and explaining why it belongs to the investigation); the reviewer's job
+    becomes evaluation, not investigation. Concretely, that single "fit for acceptance"
+    decision rests on three distinguishable questions later Stage 1/2 work should keep
+    separate: was the right passage *selected* for this Research Question, does the
+    *interpretation* stay grounded in what the passage actually says, and does that
+    interpretation actually *advance* the Research Question it's linked to. This feature
+    doesn't decide any of the three — it produces evidence structured so the Knowledge
+    Reviewer, through EA-0008 (Knowledge Review), can decide efficiently.
+    
+    ## Design Tensions and Open Questions
+    
+    1. **Should this be one feature, or split into passage-selection and interpretation?**
+       [Resolved: one feature. The deciding test is the same one that justified splitting
+       EA-0002 from EA-0003: does the earlier stopping point have independent actor value? A
+       Research Plan does — an editor can review a strategy before spending resources. A pile
+       of highlighted-but-uninterpreted passages doesn't — no reviewer benefits from evaluating
+       spans of text with no sense of what they're claimed to support. A future split would be
+       scalability-driven (very large corpora, separate retrieval models, passage reuse across
+       many interpretations at scale), not a mechanical-vs-interpretive one — not applicable for
+       v1.]
+    2. **Where's the line between this feature's self-verification and EA-0008's (Knowledge
+       Review's) acceptance decision?** [Resolved as a principle: this feature may only verify
+       narrow, structural/grounding properties — the source belongs to the approved corpus, the
+       locator resolves to the cited passage, the excerpt is faithful and unaltered (truncation
+       disclosed), sufficient context was captured, required fields are present, the
+       interpretation doesn't visibly introduce facts absent from the source, and
+       duplicate/overlapping records are flagged. It may never assert that a candidate is
+       *accepted* — only that it's structurally complete and apparently grounded. The "visibly
+       introduce unsupported facts" check sits closest to the line, since it requires some
+       semantic comparison, not pure structure-checking — flagged for Stage 1/2 to tighten if
+       needed. Everything about substantive acceptance (does the interpretation actually hold
+       up, is it too broad, are qualifications missing, accept/reject/return-for-revision)
+       belongs to EA-0008 (Knowledge Review), owned by the Knowledge Reviewer. These are
+       recorded here as **assumptions requiring validation by that brief**, not decisions this
+       feature owns — this feature produces Candidate Evidence; only EA-0008 produces Accepted
+       Evidence.]
+    3. **What happens when no passage can be found for a Research Question?** [Resolved:
+       report it explicitly as an investigation finding, not a retrieval failure — e.g. "no
+       candidate evidence identified in the approved corpus for RQ-3." This says nothing about
+       reality, only about what this corpus contains, and is itself valuable information rather
+       than an error to hide.]
+    4. **What happens when one passage is relevant to multiple Research Questions?**
+       [Resolved: extract once, link to many — a single candidate evidence item can reference
+       several Research Questions rather than being duplicated per question. Duplicating it
+       would create multiple copies of the same evidence that could drift independently, the
+       same "multiple mutable sources of truth" risk already flagged architecturally in
+       `docs/solution-discovery-evidenceatlas.md`.]
+    5. **How should corroboration between independent sources be distinguished from mechanical
+       duplication?** [Resolved as a principle: this feature may recognize mechanical
+       duplication (e.g. a wire-service article republished verbatim) but must not collapse
+       independent agreement between genuinely distinct sources into "duplicate" — that
+       agreement is valuable signal for later stages, not redundancy. This feature doesn't
+       reason about *what* corroboration means or aggregate it; it only avoids destroying the
+       distinction. **Open nuance:** telling "mechanically identical/republished" apart from
+       "independently produced but agreeing" is itself a judgment call that isn't fully
+       specified here — left for Stage 2 to define concretely.]
+    6. **Does this feature do any new source discovery?** [Resolved: no, hard boundary. It
+       operates only over the already-approved Research Corpus from EA-0003 — no web search,
+       no new crawling, no "just one more source." Crossing this boundary would make the
+       provenance chain impossible to reconstruct.]
+    7. **Naming:** the feature name "Evidence Extraction" stays workable (it matches the
+       discovery doc's existing vocabulary — Evidence is already defined as excerpt +
+       interpretation), but its *output* should use provisional language (e.g. "Candidate
+       Evidence") rather than implying accepted evidence emerges automatically.
+    
+    ## Suspected Dependencies
+    
+    Upstream: EA-0003 (Research Corpus + Research Execution Report) only.
+    
+    Downstream (hard): EA-0008 (Knowledge Review) consumes Candidate Evidence directly, and its
+    Knowledge Reviewer evaluates it. The accept/reject/return-for-revision behavior, and the
+    expectation that any revised interpretation produces a traceable new version rather than a
+    silent rewrite, are owned by EA-0008, not this feature.
+    
+    **Correction (2026-07-17, during EA-0006 Round 0; actor/feature names updated 2026-07-18
+    per AJ-003):** Claim Construction (EA-0006) does **not** consume Candidate Evidence
+    directly, despite what an earlier version of this section said. It consumes **Accepted
+    Evidence**, the artifact state produced once EA-0008 (Knowledge Review) accepts a
+    candidate — otherwise unreviewed, possibly-hallucinated candidates could influence claim
+    synthesis before the human acceptance step meant to catch that. The chain is: this feature
+    produces Candidate Evidence → EA-0008 (Knowledge Review) produces Accepted Evidence →
+    EA-0006 (Claim Construction) consumes Accepted Evidence. EA-0006's dependency on this
+    feature's output is indirect, mediated through EA-0008's acceptance decision, not a direct
+    dependency on Candidate Evidence itself.
+    
+    Downstream (soft): EA-0005 (Ambiguity Construction) is the deliberate exception to the
+    correction above — its pre-claim path explicitly accepts manually-referred Candidate
+    Evidence pairs directly from this feature, without requiring EA-0008's acceptance first,
+    since that path is explicitly analytical/provisional (it can conclude "no real conflict" or
+    "insufficient context") and doesn't promote those candidates into the accepted evidence
+    base. Not a hard dependency in the sense of being required for this feature to run, but
+    worth keeping in mind, since `initiate.md`'s original contradiction-handling flow only
+    considered ambiguity emerging at the claim level.
+    
+    ## Rough Scope Notes
+    
+    In scope (rough): locating candidate passages relevant to the approved Research Questions,
+    within the approved Research Corpus only; capturing exact excerpts with resolvable
+    provenance and sufficient context; producing a bounded interpretation per passage plus a
+    short selection rationale explaining why it belongs to the investigation; linking each
+    candidate evidence item to one or more Research Questions; running the narrow structural/
+    grounding preflight checks listed above; explicitly reporting when no candidate evidence is
+    found for a Research Question; recognizing mechanical duplication while preserving
+    corroboration signal; emitting results as provisional Candidate Evidence pending
+    acceptance.
+    
+    Out of scope (rough): any new source discovery, web search, or crawling (stays inside
+    EA-0003's boundary); the substantive acceptance decision (accept/reject/revise — belongs to
+    EA-0008, Knowledge Review); contradiction or ambiguity reasoning; claim
+    construction; reasoning about what corroboration *means* or aggregating corroborating
+    evidence (a later feature's job — this feature only preserves the distinction from
+    duplication); canonical ownership of the "Evidence Category" vocabulary term (left
+    intentionally open per EA-0002, for the same premature-ontology reason).
+    
+    ## Readiness Check
+    
+    - [x] The problem statement explains WHY, not HOW
+    - [x] The primary actor is a human role, not "the system"
+    - [x] The core outcome is stated from the actor's perspective
+    - [x] At least one open question is listed (seven listed)
+    - [x] Suspected dependencies are named (even if marked uncertain)
+    - [x] No actor+outcome DBA form appears anywhere in this brief
+    - [x] No stable guarantees or DBA scope boundaries appear in this brief
+    - [x] The feature can be described without mentioning implementation technology
+    - [x] (R-type only) — n/a, this is F-type
+    
+    **Brief status**: READY FOR STAGE 1
+    
+    ---
+    
+    <!-- METADATA -->
+    brief_created: 2026-07-17
+    brief_last_updated: 2026-07-18
+    stage1_started:
+
+  --- backlog/EA-0005-ambiguity_construction.md (sha256: a4134a75cdf2bdaf1eaad55943eb2ab0def9c96cac5da9cd595dfe105f2cb85a, visibility: shown) ---
+    # Feature Brief: EA-0005 — Ambiguity Construction
+    
+    **Slug**: ambiguity_construction
+    **Type**: F-type
+    **Refines**: n/a
+    **Tier**: 0 — Foundational (depends on EA-0004 directly; EA-0006, briefed after this
+    feature, supplies its second input path — see Suspected Dependencies)
+    **Status**: BRIEF-DRAFT
+    
+    ---
+    
+    ## Problem / Need
+    
+    Evidence — and eventually claims — bearing on the same Research Question can embody
+    genuinely incompatible positions. Without a way to structure that disagreement explicitly,
+    the pipeline either forces a single conclusion that quietly discards a real, decision-
+    relevant dispute, or loses track of the disagreement entirely because nothing ever recorded
+    it. Both failure modes undermine the "preserve uncertainty, don't hide it" principle this
+    project exists to uphold.
+    
+    ## Primary Actor
+    
+    **Correction (2026-07-18, per Architecture Journal AJ-003):** the actor for this feature is
+    the **Knowledge Reviewer** — the same unified role used for EA-0004 and EA-0006 (this
+    section previously named a standalone "Ambiguity Reviewer"; that name is retired). The
+    question the Knowledge Reviewer asks here is specifically whether a proposed Ambiguity
+    accurately structures a real, decision-relevant disagreement — including the competing
+    positions, the evidence behind each, and the conditions that distinguish them — a different
+    question from evidence acceptance or claim approval, but asked by the same role rather than
+    a separate actor. (Tracked in Architecture Journal AJ-002.)
+    
+    ## Core Outcome (informal)
+    
+    The Knowledge Reviewer can evaluate a referred, suspected disagreement without having to
+    reconstruct why it was flagged or manually cross-reference the underlying evidence
+    themselves. When a genuine unresolved disagreement exists, they receive a structured
+    representation of the competing positions, the evidence supporting each, and the
+    assumptions or conditions that distinguish them. When it doesn't — the referral turns out
+    to reflect a scope, population, timeframe, or definitional difference rather than a real
+    conflict — they receive that finding instead, rather than a manufactured Ambiguity.
+    
+    ## Design Tensions and Open Questions
+    
+    1. **Two entry paths, one canonical artifact.** [Resolved: this feature accepts (a) a
+       human-initiated referral — the Knowledge Reviewer, while evaluating evidence through
+       EA-0008 (Knowledge Review), notices two Candidate Evidence items that may express
+       incompatible positions and refers them, without resolving the question themselves; and
+       (b) an automatic referral
+       from Claim Construction, when synthesis attempts to reconcile competing interpretations
+       and cannot. Both converge on one Ambiguity artifact type, which records which path
+       produced it.]
+    2. **Referral vs. detection — where's the boundary?** [Resolved: this feature never
+       searches the evidence base or claim set for disagreement on its own. It only evaluates
+       and structures a bounded referral it's given. Corpus-wide or pairwise automated
+       conflict detection is explicitly deferred to a possible future feature, justified only if
+       review throughput becomes a demonstrated bottleneck — not in scope for v1.]
+    3. **What does a referral actually establish?** [Resolved: only a *suspected* disagreement,
+       never a confirmed one. This feature's job is to determine whether the referred items
+       represent (a) a genuine unresolved ambiguity, (b) a difference that's actually resolved
+       by scope, population, timeframe, or definition — conditionally compatible, not truly in
+       conflict — (c) no real conflict at all, or (d) insufficient context to assess yet. **No
+       forced reconciliation, in either direction:** the feature must not manufacture false
+       consensus just to avoid producing an Ambiguity, and it must not manufacture an Ambiguity
+       just because a referral was made, if the evidence doesn't actually support one. A
+       reviewer referring two items does not, by itself, create a canonical ambiguity.]
+    4. **Is Ambiguity mutually exclusive with Claim?** [Resolved: no. A Claim and a linked
+       residual Ambiguity can coexist for the same investigation at different granularity —
+       e.g. a general claim holds, with a narrower disputed sub-condition recorded alongside
+       it rather than either silently dropped or forced to block the general claim.]
+    5. **What happens after a referral is assessed as (d) "insufficient context"?** [Not
+       resolved — genuinely open, unlike #1-4 above. Does the referral stay pending until more
+       evidence arrives naturally (e.g. from a later Corpus Construction or Evidence Extraction
+       pass), does it require the referring party to actively supply more context before
+       re-submission, or does it simply expire unrecorded? Left for Stage 1/2 to decide.]
+    
+    ## Suspected Dependencies
+    
+    **Direct input dependencies:**
+    - EA-0004 (Candidate Evidence) — available now, for human-referred pre-claim cases.
+    - Claim Construction's outputs (Claims, and failed/irreconcilable-synthesis referrals) —
+      not yet briefed. This feature requires at least one supported referral input to operate;
+      in v1 it can run directly against EA-0004 Candidate Evidence, and once Claim Construction
+      exists, its outputs become an *additional* direct input path — this is deliberately not
+      phrased as a hard blocking dependency on a feature that doesn't exist yet.
+    
+    **Invocation sources (distinct from the data itself):**
+    - The Knowledge Reviewer manually flagging selected Candidate Evidence while evaluating it
+      through EA-0008 (Knowledge Review) — meaning EA-0008 isn't only an accept/reject
+      checkpoint, it's also a routing point for suspected disagreement. (Another input to
+      AJ-001's editorial-consolidation tracking, and now reflected in EA-0008's own brief.)
+    - Claim Construction (EA-0006) automatically referring a synthesis it cannot reconcile.
+    
+    **Downstream (hard, now briefed):** EA-0008 (Knowledge Review) consumes constructed
+    Ambiguities directly — the Knowledge Reviewer's approval of an Ambiguity is owned there, not
+    by this feature.
+    
+    **Downstream (soft, not yet briefed):** eventual Publishing views (e.g. a Reality Check's
+    ambiguity framing) likely consume this feature's output — not confirmed, since Publishing
+    isn't briefed yet.
+    
+    ## Rough Scope Notes
+    
+    In scope (rough): evaluating a bounded referral from either entry path; determining whether
+    the referred items represent genuine ambiguity, conditional compatibility, no real
+    conflict, or insufficient context to assess; constructing a reviewable representation of
+    competing positions, their supporting evidence, and the assumptions/conditions that
+    distinguish them, when genuine ambiguity is found.
+    
+    Out of scope (rough): claim construction itself; corpus-wide or pairwise automated conflict
+    detection, or independently searching for disagreements; adjudicating which position is
+    correct; recommending which side a decision-maker should follow; silently rewriting Claims
+    or Candidate Evidence to remove a disagreement; forced reconciliation in either direction
+    (manufacturing consensus, or manufacturing an ambiguity without genuine evidence of one).
+    
+    ## Readiness Check
+    
+    - [x] The problem statement explains WHY, not HOW
+    - [x] The primary actor is a human role, not "the system"
+    - [x] The core outcome is stated from the actor's perspective
+    - [x] At least one open question is listed (five listed; #1-4 resolved as principles, #5
+          genuinely open)
+    - [x] Suspected dependencies are named (even if marked uncertain)
+    - [x] No actor+outcome DBA form appears anywhere in this brief
+    - [x] No stable guarantees or DBA scope boundaries appear in this brief (scope notes are
+          informal guardrails, not formal DBA contract language)
+    - [x] The feature can be described without mentioning implementation technology
+    - [x] (R-type only) — n/a, this is F-type
+    
+    **Brief status**: READY FOR STAGE 1
+    
+    ---
+    
+    <!-- METADATA -->
+    brief_created: 2026-07-17
+    brief_last_updated: 2026-07-18
+    stage1_started:
+
+  --- backlog/EA-0006-claim_construction.md (sha256: 47c1199b1410ae2e550ba742141e6c717cddb3bacb92d95db946cf1c9339d080, visibility: shown) ---
+    # Feature Brief: EA-0006 — Claim Construction
+    
+    **Slug**: claim_construction
+    **Type**: F-type
+    **Refines**: n/a
+    **Tier**: 0 — Foundational (depends on EA-0008's Accepted Evidence output — see Suspected
+    Dependencies)
+    **Status**: BRIEF-DRAFT
+    
+    ---
+    
+    ## Problem / Need
+    
+    Accepted evidence, even once verified as faithful to its sources, is still just a
+    collection of individually-grounded excerpts and interpretations — nobody has yet
+    synthesized what defensible proposition, if any, that evidence supports for a given
+    Research Question. Without this feature, every downstream use of the evidence base
+    (publishing, decision-brief generation) would need to re-derive that synthesis itself,
+    inconsistently and without a reviewable intermediate record of what was concluded and why.
+    
+    ## Primary Actor
+    
+    **Correction (2026-07-18, per Architecture Journal AJ-003):** the actor for this feature is
+    the **Knowledge Reviewer** — the same unified role used for EA-0004 and EA-0005 (this
+    section previously named a standalone future "Claim Reviewer"; that name is retired). The
+    question the Knowledge Reviewer asks here is specifically whether a proposed Candidate
+    Claim is sufficiently supported, bounded, and decision-relevant to enter the accepted claim
+    base — a different question from evidence acceptance or ambiguity approval, but asked by
+    the same role. Today, without this feature, that person would have no synthesized
+    proposition to evaluate at all — they'd have to read raw accepted evidence and construct an
+    interpretation themselves before they could even begin reviewing one.
+    
+    ## Core Outcome (informal)
+    
+    The Knowledge Reviewer can evaluate a proposed, defensible proposition synthesized from
+    accepted evidence — with its supporting and limiting evidence, scope, qualifiers, and
+    synthesis rationale already attached — rather than having to synthesize it themselves
+    before they can review it. When the accepted evidence for a Research Question can't be
+    responsibly reconciled into any claim, they instead see that outcome recorded honestly
+    (and, where relevant, referred to Ambiguity Construction) rather than a forced or
+    overreaching proposition.
+    
+    ## Design Tensions and Open Questions
+    
+    1. **Construction vs. approval — same split as Evidence Extraction / Knowledge Review.**
+       [Resolved: this feature only produces Candidate Claims; it never approves, rejects, or
+       decides a claim is authoritative, and never silently revises a claim after a reviewer has
+       looked at it. EA-0008 (Knowledge Review) owns that decision. The independent-actor-value
+       test gives the same answer as before — a Candidate Claim has clear review value on its
+       own, and "accepted claim" is a materially different state produced by a distinct human
+       judgment.]
+    2. **Does this feature consume raw Candidate Evidence or EA-0008-accepted Evidence?**
+       [Resolved: Accepted Evidence only. Operating on unreviewed Candidate Evidence would let
+       a hallucinated or misinterpreted candidate influence synthesis before the human
+       acceptance step meant to catch exactly that. This corrects EA-0004's brief, which
+       previously said Claim Construction consumes Candidate Evidence directly — see the
+       correction note added there.]
+    3. **Does one Research Question resolve to exactly one Claim?** [Resolved: no — a Research
+       Question can produce zero, one, or multiple Claims, addressing different dimensions
+       (magnitude, mechanism, boundary conditions, risks, evidence limitations) that coexist
+       and qualify each other rather than conflict. Multiple claims on the same Research
+       Question are not automatically an ambiguity — they become one only when the
+       interpretations genuinely compete and that competing relationship itself needs
+       structuring (Ambiguity Construction's job, not this feature's). Legitimate outcomes for
+       a Research Question also include: no accepted evidence exists yet, the evidence is
+       insufficient to synthesize anything defensible, or the result is an Ambiguity referral
+       with no accompanying Claim at all.]
+    4. **Does canonical ownership of "Evidence Category" finally land here?** [Resolved: no,
+       deferred again — this would conflate what a piece of evidence *is* with what can be
+       *synthesized from it*. Instead, this feature originates a narrower, more load-bearing
+       vocabulary: the **Claim-Evidence relationship** (supports, opposes, qualifies, limits,
+       contextualizes, insufficient-to-determine) — how accepted Evidence bears on a specific
+       Candidate Claim. Evidence-intrinsic characteristics (empirical study, official
+       statistics, regulation, vendor case study, etc.) belong with the Evidence model or
+       EA-0008's acceptance layer instead, whenever that gets defined.]
+    5. **Relationship to existing Ambiguities.** [Not resolved — left open rather than forced.
+       Could a later Claim Construction run (e.g. against updated evidence) reference an
+       already-constructed Ambiguity to properly scope or qualify a new claim around a known
+       disputed sub-condition? Plausible, but not required for this feature to function, and
+       deliberately left as a later dependency question rather than decided now.]
+    
+    ## Suspected Dependencies
+    
+    Upstream (hard): EA-0008 (Knowledge Review)'s **Accepted Evidence** output — not Candidate
+    Evidence directly (see resolution #2 above). This feature also consumes Research Questions
+    and their upstream traceability context (from EA-0002's Research Plan, carried through
+    EA-0008's acceptance step).
+    
+    Downstream (hard): EA-0008 (Knowledge Review) consumes Candidate Claims directly, and its
+    Knowledge Reviewer owns accept/reject/return-for-revision on them.
+    
+    Downstream (hard, existing): EA-0005 (Ambiguity Construction) consumes referrals from this
+    feature when synthesis can't reconcile competing interpretations for a Research Question —
+    already established when EA-0005 was briefed.
+    
+    Downstream (soft, open): whether a later Claim Construction run should be able to reference
+    an existing Ambiguity when scoping a new claim (see Design Tension #5) — not decided.
+    
+    ## Rough Scope Notes
+    
+    In scope (rough): synthesizing zero or more Candidate Claims per Research Question from
+    Accepted Evidence (produced via EA-0008); attaching supporting and limiting evidence to
+    each; recording scope, qualifiers, and synthesis rationale; originating the Claim-Evidence
+    relationship vocabulary; referring irreconcilable synthesis results to Ambiguity
+    Construction.
+    
+    Out of scope (rough): claim approval or rejection, and evidence acceptance (both EA-0008's
+    job); the canonical Evidence Category taxonomy (deferred, likely belongs with the Evidence
+    model or EA-0008); adjudicating or resolving Ambiguities; forcing exactly one claim per
+    Research Question, or forcing any claim to be produced when the evidence doesn't support
+    one.
+    
+    ## Readiness Check
+    
+    - [x] The problem statement explains WHY, not HOW
+    - [x] The primary actor is a human role, not "the system"
+    - [x] The core outcome is stated from the actor's perspective
+    - [x] At least one open question is listed (five listed)
+    - [x] Suspected dependencies are named (even if marked uncertain)
+    - [x] No actor+outcome DBA form appears anywhere in this brief
+    - [x] No stable guarantees or DBA scope boundaries appear in this brief (scope notes are
+          informal guardrails, not formal DBA contract language)
+    - [x] The feature can be described without mentioning implementation technology
+    - [x] (R-type only) — n/a, this is F-type
+    
+    **Brief status**: READY FOR STAGE 1
+    
+    ---
+    
+    <!-- METADATA -->
+    brief_created: 2026-07-17
+    brief_last_updated: 2026-07-18
+    stage1_started:
+
+DIFF TO REVIEW (base->review, secret/size filtered)
+
+codex
+I’m treating this as a fresh packet and rechecking the updated EA-0008 text, especially the new proposed-artifact paragraph and any stronger claims it introduces.
+exec
+/bin/bash -lc "nl -ba backlog/EA-0008-knowledge_review.md | sed -n '1,150p'" in /home/rimo/projects/EvidenceAtlas
+ succeeded in 0ms:
+     1	# Feature Brief: EA-0008 — Knowledge Review
+     2	
+     3	**Slug**: knowledge_review
+     4	**Type**: F-type
+     5	**Refines**: n/a
+     6	**Tier**: 0 — Foundational (governance feature; consumes EA-0004, EA-0005, and EA-0006
+     7	directly, and recurs across the pipeline rather than firing once)
+     8	**Status**: BRIEF-DRAFT
+     9	
+    10	---
+    11	
+    12	## Problem / Need
+    13	
+    14	Without a way to evaluate whether extracted evidence, synthesized claims, and structured
+    15	ambiguities actually represent trustworthy knowledge, unreviewed or possibly-hallucinated
+    16	material could silently enter the pipeline and eventually reach publication. The entire
+    17	evidence-first premise of this project depends on a real checkpoint existing between "the
+    18	AI produced a candidate" and "this is part of the trusted knowledge base" — right now
+    19	three separate transformation features (EA-0004, EA-0005, EA-0006) each assume that
+    20	checkpoint exists without any feature actually owning it.
+    21	
+    22	## Primary Actor
+    23	
+    24	The **Knowledge Reviewer** — a single role that replaces the separately-named "Evidence
+    25	Reviewer," "Ambiguity Reviewer," and "Claim Reviewer" used when EA-0004, EA-0005, and
+    26	EA-0006 were briefed (those briefs are being corrected to reflect this consolidation). The
+    27	underlying review question still differs by what's under review — is this excerpt and
+    28	interpretation faithful to its source; is this synthesis adequately supported, bounded, and
+    29	decision-relevant; does this structure a genuine, decision-relevant disagreement — but it's
+    30	one role asking variants of one broader question: can this be trusted as part of the
+    31	knowledge base.
+    32	
+    33	## Core Outcome (informal)
+    34	
+    35	The Knowledge Reviewer can evaluate a proposed piece of knowledge — Candidate Evidence, a
+    36	Candidate Claim, or a constructed Ambiguity — without needing to re-derive or reconstruct
+    37	the underlying material or reasoning themselves, since the feature that produced it has
+    38	already prepared it for review (excerpt plus interpretation and rationale; synthesis with
+    39	supporting/limiting evidence attached; structured competing positions with their evidence).
+    40	This is a recurring governance activity applied at multiple points across the pipeline as
+    41	material arrives, not a single point-in-time gate.
+    42	
+    43	**Proposed artifact:** a Knowledge Review record per decision — naming which artifact was
+    44	reviewed (Candidate Evidence, Candidate Claim, or Ambiguity), the outcome
+    45	(accept/reject/return-for-revision), and the rationale. Exact shape is Stage 1/2 work; this
+    46	brief only proposes that such a record is this feature's output, one per decision made
+    47	(added 2026-07-18, so EA-0011 (Review Registry) has a supported canonical source to
+    48	aggregate).
+    49	
+    50	## Design Tensions and Open Questions
+    51	
+    52	1. **This is recurring, not a single gate.** [Resolved, per Architecture Journal AJ-003:
+    53	   this feature fires repeatedly — once evidence is extracted, once claims are synthesized,
+    54	   once ambiguities are constructed — under one policy umbrella, rather than being one
+    55	   checkpoint that happens once per investigation.]
+    56	2. **Does this feature own the accept/reject/return-for-revision decisions previously
+    57	   assumed by EA-0004 and EA-0006?** [Resolved: yes. This is where those "assumptions
+    58	   requiring validation" become owned decisions — accept/reject/revise on Candidate
+    59	   Evidence; accept/reject/revise on Candidate Claims; accept/return-for-more-analysis on
+    60	   constructed Ambiguities. This feature also owns routing a human-initiated suspected-
+    61	   disagreement referral to EA-0005 (previously described as something "Gate 1" did in
+    62	   EA-0004's brief).]
+    63	3. **Does review of one artifact type block progress on others?** [Not resolved — must all
+    64	   evidence for a Research Question be accepted before Claim Construction can run on any of
+    65	   it, or can synthesis proceed incrementally as evidence is accepted in batches? A genuine
+    66	   open question for Stage 1/2, not decided here.]
+    67	4. **Granularity and blocking-vs-advisory are policy-driven, not structural.** [Resolved,
+    68	   per AJ-003 and the discovery doc's "Policy centralization" finding: this feature consults
+    69	   a not-yet-briefed Policy Registry for review strategy (per-item, per-bundle, sampled,
+    70	   blocking, advisory, risk-based skipping) rather than hardcoding one strategy for every
+    71	   artifact type.]
+    72	
+    73	## Suspected Dependencies
+    74	
+    75	Upstream (hard): EA-0004 (Candidate Evidence), EA-0005 (constructed Ambiguities), and
+    76	EA-0006 (Candidate Claims) — all three consumed directly. Also a not-yet-briefed Policy
+    77	Registry feature, consulted for review strategy — recorded as a belief, not yet verified.
+    78	
+    79	Note on relationship shape: this is not a simple one-directional consumption. This
+    80	feature's Accepted Evidence output feeds EA-0006 (Claim Construction), which produces
+    81	Candidate Claims that come back to this same feature for review — a recurring, staged
+    82	back-and-forth across the pipeline, not a cycle within a single pass.
+    83	
+    84	Downstream (hard): EA-0006 depends on this feature's Accepted Evidence output (per the
+    85	correction already made to EA-0004's brief).
+    86	
+    87	Downstream (soft): eventual Publishing views and EA-0009 (Publication Review, once briefed)
+    88	will likely consume this feature's accepted knowledge base (Accepted Evidence, Accepted
+    89	Claims, resolved Ambiguities) as their source of truth.
+    90	
+    91	## Rough Scope Notes
+    92	
+    93	In scope (rough): evaluating Candidate Evidence, Candidate Claims, and Ambiguities for
+    94	trustworthiness, using the distinct question appropriate to each; owning accept/reject/
+    95	return-for-revision outcomes for each; routing human-initiated disagreement referrals to
+    96	Ambiguity Construction; consulting the Policy Registry for review strategy.
+    97	
+    98	Out of scope (rough): producing any of the underlying candidates itself (each transformation
+    99	feature's own job); investigation-level approval (EA-0007's job); publication-level approval
+   100	(EA-0009's job, once briefed); defining the Policy Registry itself.
+   101	
+   102	## Readiness Check
+   103	
+   104	- [x] The problem statement explains WHY, not HOW
+   105	- [x] The primary actor is a human role, not "the system"
+   106	- [x] The core outcome is stated from the actor's perspective
+   107	- [x] At least one open question is listed (four listed)
+   108	- [x] Suspected dependencies are named (even if marked uncertain)
+   109	- [x] No actor+outcome DBA form appears anywhere in this brief
+   110	- [x] No stable guarantees or DBA scope boundaries appear in this brief (scope notes are
+   111	      informal guardrails, not formal DBA contract language)
+   112	- [x] The feature can be described without mentioning implementation technology
+   113	- [x] (R-type only) — n/a, this is F-type
+   114	
+   115	**Brief status**: READY FOR STAGE 1
+   116	
+   117	---
+   118	
+   119	<!-- METADATA -->
+   120	brief_created: 2026-07-17
+   121	brief_last_updated: 2026-07-18
+   122	stage1_started:
+
+codex
+**Acceptance Criteria**
+
+1. Problem clearly stated: satisfied. EA-0008 identifies the missing checkpoint between AI-produced candidates and the trusted knowledge base, including the risk of unreviewed or hallucinated material entering publication flow (`backlog/EA-0008-knowledge_review.md:14-20`).
+
+2. Upgrade/value stated: satisfied. The upgrade is a recurring Knowledge Review activity across evidence, claims, and ambiguities, so reviewers can evaluate prepared candidate knowledge rather than reconstructing source material or reasoning themselves (`backlog/EA-0008-knowledge_review.md:35-41`).
+
+3. Bounded scope: satisfied. In-scope review responsibilities and out-of-scope candidate production, investigation approval, publication approval, and Policy Registry definition are explicitly separated (`backlog/EA-0008-knowledge_review.md:91-100`).
+
+4. Proposed artifact present: satisfied. The brief proposes a Knowledge Review record per decision, with reviewed artifact, outcome, and rationale, while deferring exact shape to Stage 1/2 (`backlog/EA-0008-knowledge_review.md:43-48`).
+
+5. No implementation detail / ready for Stage 1: satisfied. The readiness checklist claims no implementation technology and marks the brief ready for Stage 1 (`backlog/EA-0008-knowledge_review.md:102-115`).
+
+**Claim Support**
+
+Strong claims are supported enough for brief scope. The unified Knowledge Reviewer role is mirrored in EA-0004, EA-0005, and EA-0006 corrections (`backlog/EA-0004-evidence_extraction.md:23-30`, `backlog/EA-0005-ambiguity_construction.md:23-30`, `backlog/EA-0006-claim_construction.md:23-31`). The claim that EA-0008 consumes all three candidate artifact streams is supported by those briefs’ dependency sections (`backlog/EA-0004-evidence_extraction.md:110-124`, `backlog/EA-0005-ambiguity_construction.md:93-95`, `backlog/EA-0006-claim_construction.md:89-90`). AJ-003 itself is not in the packet, but the Policy Registry dependency is explicitly marked “recorded as a belief, not yet verified,” so that does not create a false guarantee (`backlog/EA-0008-knowledge_review.md:75-77`).
+
+**Scope Drift**
+
+No scope drift found. The supporting edits to EA-0004/0005/0006 are within the artifact’s stated actor-consolidation and dependency-alignment claim (`backlog/EA-0008-knowledge_review.md:24-26`) and do not introduce implementation behavior.
+
+**In-Scope Blockers**
+
+No IN-SCOPE BLOCKER findings.
+
+Non-blocking observation: EA-0008 uses broad outcome shorthand “accept/reject/return-for-revision” for the proposed record while later distinguishing Ambiguity outcomes as “accept/return-for-more-analysis” (`backlog/EA-0008-knowledge_review.md:43-46`, `backlog/EA-0008-knowledge_review.md:56-60`). Because the brief says exact shape is Stage 1/2 work, this is not blocking, but Stage 1 should normalize outcome vocabulary by artifact type.
+
+PR decision: ADVANCE  
+Scope drift warning: no — the packet stays within brief-stage artifact definition and related brief alignment.
+
+LOG SUMMARY: NO OBJECTION — EA-0008 now includes the proposed review-record artifact and satisfies brief-stage criteria with no in-scope blockers.
+EVIDENCE: A
+HIGHEST-IMPACT UNCERTAINTY: AJ-003 is referenced but not included, so its architecture-journal support is accepted only through the shown briefs.
+tokens used
+63,489

@@ -1,0 +1,351 @@
+---
+review_id: REV__claim_construction__brief__R1
+findings: []
+unparsed_findings_count: 0
+reviewed:
+  feature: claim_construction
+  stage: brief
+  branch: main
+  base_commit: (no base pin)
+  review_commit: aa5be800de44b6dd7ac02a88eddb163baf5d85ff
+  artifacts:
+    - path: backlog/EA-0006-claim_construction.md
+      sha256: cc61709fb29ef10b557d7931f1c18483ea6522cba0eb52cb45737bbaabe9bfd6
+      visibility: shown
+  diff_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  coverage_state: FULL_COVERAGE
+  workspace_dirty: true
+  redaction_count: 0
+  secret_redaction: false
+  excluded_paths: []
+  reviewed_packet: packets/20260717T191902Z-claim_construction-stage-brief-aa5be80.packet.txt
+  reviewed_packet_sha256: d748b0e017cc5111d4e4b575967339d6cfffafa1d78fc2ac623402eb0c1ae3a9
+  reviewer: "codex (session 019f7184-3ea8-7783-aa76-13990dc87164)"
+  codex_concern: NO OBJECTION
+  effective_concern: NO OBJECTION
+  evidence: A
+  reasoning_effort: high
+  reconnect_count: 0
+  elapsed_ms: 22246
+---
+
+**Acceptance Criteria**
+
+The artifact satisfies the brief-stage criteria.
+
+- Problem clearly stated: yes. `Problem / Need` explains why accepted evidence still needs synthesis before downstream use.
+- Scope explicitly bounded: yes. `Rough Scope Notes` separates in-scope claim construction from out-of-scope approval, evidence acceptance, ambiguity adjudication, and forced single-claim outcomes.
+- No implementation detail: yes. The brief describes artifacts and roles, not technology, schemas, hooks, storage, or enforcement mechanics.
+- Ready to become Stage 1 Intent: yes. It is marked `BRIEF-DRAFT` and `READY FOR STAGE 1`, with open questions and dependencies named.
+- Value/risk/guardrail present: yes. Value appears in the actor outcome; risk/guardrails appear in the accepted-evidence-only constraint, no-approval boundary, no forced claims, and ambiguity referral handling.
+- Proposed artifact(s): sufficiently present. Candidate Claims, Claim-Evidence relationships, synthesis rationale, attached evidence, and Ambiguity referrals are named in scope notes.
+
+**Findings**
+
+No IN-SCOPE BLOCKER findings.
+
+Strong claims such as “never approves,” “accepted Evidence only,” and “never silently revises” are supported as stated scope boundaries in the brief itself and reinforced by the out-of-scope section. They do not claim implemented enforcement, so formal approval-binding, rollback correctness, schema validation, CI, or exact decision integrity remain out-of-scope backlog under the packet rules.
+
+No scope drift is evident. The only artifact shown is `backlog/EA-0006-claim_construction.md`, matching the manifest. The brief references EA-0004, EA-0005, Gate 1, and Gate 2, but does not modify downstream doctrine in the packet.
+
+PR decision: ADVANCE  
+Scope drift warning: no — the artifact stays within brief-stage scoping and does not introduce implementation or enforcement behavior.
+
+LOG SUMMARY: NO OBJECTION — The brief satisfies the stated stage criteria with bounded scope and no in-scope blockers.
+EVIDENCE: A
+HIGHEST-IMPACT UNCERTAINTY: The packet contains no diff or surrounding repository context, so the assessment depends entirely on the shown full-file artifact.
+OpenAI Codex v0.142.5
+--------
+workdir: /home/rimo/projects/EvidenceAtlas
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019f7184-3ea8-7783-aa76-13990dc87164
+--------
+user
+Reviewer task:
+
+SCOPE CONTRACT
+  Assess this artifact against the STATED SCOPE of this stage/PR — the Expected Stage
+  Output below and what the artifacts actually claim — NOT against an ideal final system.
+  A capability the artifacts do not claim to provide is OUT-OF-SCOPE, not a defect.
+  The following are OUT-OF-SCOPE BACKLOG unless THIS artifact explicitly claims to provide
+  them: formal approval-binding enforcement; rollback correctness; COMMIT_BOUND/
+  WORKSPACE_BOUND enforcement; JSON Schema validation; CI validation; exact
+  decision-integrity; per-feature decision ledgers; autonomous approval; enabled hooks.
+
+YOUR TASK — answer these five questions using only the evidence in the packet:
+  1. Acceptance criteria: Does the artifact satisfy each of its stated acceptance criteria?
+     Cite evidence for each criterion (or note its absence).
+  2. Claim support: Are universal or strong claims (all, every, never, always, no X) in the
+     artifact supported by evidence in the packet? Any unverifiable strong claim is a candidate
+     finding only if it affects acceptance, scope, safety, decision integrity, or the artifact's
+     stated guarantees.
+  3. Scope drift: Is there any change beyond the stated scope boundary? (Files not in the
+     "What changes" list; behavior changes not in the intent; downstream doctrine modified
+     rather than read.)
+  4. In-scope blockers: Are there facts that, if left in, would make the artifact wrong,
+     unsafe, or internally contradictory?
+  5. Finding classification: Classify every finding you raise as exactly one of the five
+     TRIAGE RULE categories below.
+
+TRIAGE RULE — classify EVERY finding as exactly one of:
+  IN-SCOPE BLOCKER         breaks the stated goal; creates a FALSE CLAIM in this artifact;
+                           weakens the advisory/read-only/human-gated guarantees; prevents
+                           the work from running; or violates an explicit safety constraint.
+  IN-SCOPE NON-BLOCKER     improves it but is not required for this PR.
+  OUT-OF-SCOPE BACKLOG     valid, but belongs to a future feature / stronger guarantee.
+  REJECTED                 conflicts with the stated scope or Codeos philosophy.
+  SELF-REFERENCE /         review records that are stale because of the previous round's
+  REVIEW-BOOKKEEPING       own existence (causal loop); not a real artifact defect.
+  Base the PR decision ONLY on IN-SCOPE BLOCKER findings. An OUT-OF-SCOPE BACKLOG finding
+  must NOT cause DO NOT ADVANCE unless this artifact FALSELY CLAIMS to solve it.
+
+WHAT NOT TO DO
+  - Do not flag style or wording issues as blockers unless the wording creates a false claim,
+    contradiction, parser breakage, or wrong governance instruction.
+  - Do not re-review unchanged full context when the packet is in delta mode.
+  - Do not treat local-only review history as a blocker unless the artifact falsely
+    claims the review artifacts are committed/durable.
+
+INSTRUCTIONS
+  If this is a resumed session, ignore any earlier-session conclusions unless they are
+  re-established by THIS packet; assess only the evidence above, pinned to this commit.
+  Give a focused assessment of this artifact against the stated scope, acceptance criteria,
+  and evidence in this packet. Rank findings by severity. Suggest a better design only when
+  needed to explain a required fix for an IN-SCOPE BLOCKER.
+
+  Limit findings to the top 3 IN-SCOPE BLOCKERS. Additional non-blocking observations may be
+  summarized in one short paragraph only if useful.
+
+  For EACH finding emit:
+    Finding: / Severity: High|Medium|Low / Classification: <one of the TRIAGE RULE labels>
+    Evidence: <file/line> / Why: <short> / Required action: fix now|optional fix|backlog|reject
+    Scope reason: <why it does/does not belong to this PR's scope>
+  Then emit:
+    PR decision: ADVANCE | REQUEST CHANGES | DO NOT ADVANCE   (based ONLY on in-scope blockers)
+    Scope drift warning: yes|no — <is anything pulling this PR beyond its stated scope?>
+  Then on the LAST three lines emit exactly (map ADVANCE->NO OBJECTION,
+  REQUEST CHANGES->CHANGES ADVISED, DO NOT ADVANCE->DO NOT ADVANCE):
+    LOG SUMMARY: <NO OBJECTION | CHANGES ADVISED | DO NOT ADVANCE | UNCLASSIFIED> — <single most important point>
+      (use UNCLASSIFIED if you genuinely cannot classify the artifact safely)
+    EVIDENCE: <A|B|C|D|E>
+    HIGHEST-IMPACT UNCERTAINTY: <one sentence — what single thing, if wrong, most affects this assessment>
+
+  Evidence grade — the grade describes what the assessment rests on, not reviewer confidence:
+    A — Directly verified in the artifact, diff, or output shown in the packet
+    B — Verified with multiple direct pieces of evidence, but coverage is not complete
+    C — Partially verified, partially inferred from structure or context
+    D — Mostly inferred from structure or indirect evidence
+    E — Hypothesis or very limited basis — little to no direct evidence
+
+
+PACKET MANIFEST
+  generated: 2026-07-17T19:18:39Z
+  task_prompt: /home/rimo/projects/Codeos/prompts/codeos-reviewer-task.md (4959 bytes)
+  review_content_bytes: 7601
+  estimated_review_tokens: ~1900
+  budget_status: OK
+  packet_mode: full
+  delta_base: none
+  items:
+    - path: backlog/EA-0006-claim_construction.md
+      mode: full_file
+      bytes: 7601
+      sha256: cc61709fb29ef10b557d7931f1c18483ea6522cba0eb52cb45737bbaabe9bfd6
+    - path: (diff)
+      mode: full_file
+      bytes: 0
+
+REVIEW CONTEXT
+  Feature:                claim_construction
+  Stage:                  brief
+  Branch:                 main
+  Base commit:            (no base pin)
+  Review commit:          aa5be800de44b6dd7ac02a88eddb163baf5d85ff (+ uncommitted workspace changes)
+  Current approved stage: n/a (non-numeric stage)
+  Evidence coverage:      FULL_COVERAGE
+  Workspace dirty:        yes (uncommitted changes at review time)
+
+DBA RULES RELEVANT TO THIS STAGE
+  - Human approval is required for every stage transition; you are advisory only.
+  - Memory is not truth — assess only what is provided, pinned to the review commit.
+  - Implementation must trace to approved artifacts; no behavior beyond intent+contract+schema.
+  - No events outside the approved event schema; no hidden behavior.
+
+STAGE-SPECIFIC CHECKS
+  - problem clearly stated; scope explicitly bounded; no implementation detail; ready to become a Stage 1 Intent; value/risk/guardrail present.
+
+EXPECTED STAGE OUTPUT
+  Feature Brief — problem, upgrade, bounded scope, proposed artifact(s), value/risk/guardrail; a candidate for Stage 1, not yet approved; no implementation detail.
+
+ARTIFACTS TO REVIEW
+  --- backlog/EA-0006-claim_construction.md (sha256: cc61709fb29ef10b557d7931f1c18483ea6522cba0eb52cb45737bbaabe9bfd6, visibility: shown) ---
+    # Feature Brief: EA-0006 — Claim Construction
+    
+    **Slug**: claim_construction
+    **Type**: F-type
+    **Refines**: n/a
+    **Tier**: 0 — Foundational (depends on the not-yet-briefed Gate 1 feature's Accepted
+    Evidence output — see Suspected Dependencies)
+    **Status**: BRIEF-DRAFT
+    
+    ---
+    
+    ## Problem / Need
+    
+    Accepted evidence, even once verified as faithful to its sources, is still just a
+    collection of individually-grounded excerpts and interpretations — nobody has yet
+    synthesized what defensible proposition, if any, that evidence supports for a given
+    Research Question. Without this feature, every downstream use of the evidence base
+    (publishing, decision-brief generation) would need to re-derive that synthesis itself,
+    inconsistently and without a reviewable intermediate record of what was concluded and why.
+    
+    ## Primary Actor
+    
+    A future **Claim Reviewer** (not yet briefed as its own feature, but named here as this
+    feature's actor, following the same test used for Evidence Reviewer and Ambiguity
+    Reviewer) — the person who evaluates whether a proposed Candidate Claim is sufficiently
+    supported, bounded, and decision-relevant to enter the accepted claim base. Today, without
+    this feature, that person would have no synthesized proposition to evaluate at all — they'd
+    have to read raw accepted evidence and construct an interpretation themselves before they
+    could even begin reviewing one.
+    
+    ## Core Outcome (informal)
+    
+    The Claim Reviewer can evaluate a proposed, defensible proposition synthesized from
+    accepted evidence — with its supporting and limiting evidence, scope, qualifiers, and
+    synthesis rationale already attached — rather than having to synthesize it themselves
+    before they can review it. When the accepted evidence for a Research Question can't be
+    responsibly reconciled into any claim, they instead see that outcome recorded honestly
+    (and, where relevant, referred to Ambiguity Construction) rather than a forced or
+    overreaching proposition.
+    
+    ## Design Tensions and Open Questions
+    
+    1. **Construction vs. approval — same split as Evidence Extraction / Gate 1.** [Resolved:
+       this feature only produces Candidate Claims; it never approves, rejects, or decides a
+       claim is authoritative, and never silently revises a claim after a reviewer has looked at
+       it. A separate, not-yet-briefed "Gate 2 — Claim Approval" feature owns that decision. The
+       independent-actor-value test gives the same answer as before — a Candidate Claim has
+       clear review value on its own, and "accepted claim" is a materially different state
+       produced by a distinct human judgment.]
+    2. **Does this feature consume raw Candidate Evidence or Gate-1-accepted Evidence?**
+       [Resolved: accepted Evidence only. Operating on unreviewed Candidate Evidence would let
+       a hallucinated or misinterpreted candidate influence synthesis before the human
+       acceptance step meant to catch exactly that. This corrects EA-0004's brief, which
+       previously said Claim Construction consumes Candidate Evidence directly — see the
+       correction note added there.]
+    3. **Does one Research Question resolve to exactly one Claim?** [Resolved: no — a Research
+       Question can produce zero, one, or multiple Claims, addressing different dimensions
+       (magnitude, mechanism, boundary conditions, risks, evidence limitations) that coexist
+       and qualify each other rather than conflict. Multiple claims on the same Research
+       Question are not automatically an ambiguity — they become one only when the
+       interpretations genuinely compete and that competing relationship itself needs
+       structuring (Ambiguity Construction's job, not this feature's). Legitimate outcomes for
+       a Research Question also include: no accepted evidence exists yet, the evidence is
+       insufficient to synthesize anything defensible, or the result is an Ambiguity referral
+       with no accompanying Claim at all.]
+    4. **Does canonical ownership of "Evidence Category" finally land here?** [Resolved: no,
+       deferred again — this would conflate what a piece of evidence *is* with what can be
+       *synthesized from it*. Instead, this feature originates a narrower, more load-bearing
+       vocabulary: the **Claim-Evidence relationship** (supports, opposes, qualifies, limits,
+       contextualizes, insufficient-to-determine) — how accepted Evidence bears on a specific
+       Candidate Claim. Evidence-intrinsic characteristics (empirical study, official
+       statistics, regulation, vendor case study, etc.) belong with the Evidence model or Gate 1
+       acceptance layer instead, whenever that gets defined.]
+    5. **Relationship to existing Ambiguities.** [Not resolved — left open rather than forced.
+       Could a later Claim Construction run (e.g. against updated evidence) reference an
+       already-constructed Ambiguity to properly scope or qualify a new claim around a known
+       disputed sub-condition? Plausible, but not required for this feature to function, and
+       deliberately left as a later dependency question rather than decided now.]
+    
+    ## Suspected Dependencies
+    
+    Upstream (hard): the not-yet-briefed Gate 1 feature's **Accepted Evidence** output — not
+    Candidate Evidence directly (see resolution #2 above). This feature also consumes Research
+    Questions and their upstream traceability context (from EA-0002's Research Plan, carried
+    through Gate 1).
+    
+    Downstream (hard): the not-yet-briefed **Gate 2 — Claim Approval** feature consumes
+    Candidate Claims directly. This is recorded as a genuine dependency this feature has on a
+    not-yet-briefed feature, not weakened just because the creation order is inverted (Claim
+    Construction is EA-0006, briefed before Gate 1 or Gate 2 exist as their own artifacts).
+    
+    Downstream (hard, existing): EA-0005 (Ambiguity Construction) consumes referrals from this
+    feature when synthesis can't reconcile competing interpretations for a Research Question —
+    already established when EA-0005 was briefed.
+    
+    Downstream (soft, open): whether a later Claim Construction run should be able to reference
+    an existing Ambiguity when scoping a new claim (see Design Tension #5) — not decided.
+    
+    ## Rough Scope Notes
+    
+    In scope (rough): synthesizing zero or more Candidate Claims per Research Question from
+    Gate-1-accepted Evidence; attaching supporting and limiting evidence to each; recording
+    scope, qualifiers, and synthesis rationale; originating the Claim-Evidence relationship
+    vocabulary; referring irreconcilable synthesis results to Ambiguity Construction.
+    
+    Out of scope (rough): claim approval or rejection (Gate 2's job); evidence acceptance
+    (Gate 1's job); the canonical Evidence Category taxonomy (deferred, likely belongs with the
+    Evidence model or Gate 1); adjudicating or resolving Ambiguities; forcing exactly one claim
+    per Research Question, or forcing any claim to be produced when the evidence doesn't
+    support one.
+    
+    ## Readiness Check
+    
+    - [x] The problem statement explains WHY, not HOW
+    - [x] The primary actor is a human role, not "the system"
+    - [x] The core outcome is stated from the actor's perspective
+    - [x] At least one open question is listed (five listed)
+    - [x] Suspected dependencies are named (even if marked uncertain)
+    - [x] No actor+outcome DBA form appears anywhere in this brief
+    - [x] No stable guarantees or DBA scope boundaries appear in this brief (scope notes are
+          informal guardrails, not formal DBA contract language)
+    - [x] The feature can be described without mentioning implementation technology
+    - [x] (R-type only) — n/a, this is F-type
+    
+    **Brief status**: READY FOR STAGE 1
+    
+    ---
+    
+    <!-- METADATA -->
+    brief_created: 2026-07-17
+    brief_last_updated: 2026-07-17
+    stage1_started:
+
+DIFF TO REVIEW (base->review, secret/size filtered)
+
+codex
+I’ll assess only the supplied packet text and classify findings against the stated brief-stage scope. Since this is a review task, I’m treating absence of implementation or future enforcement as out of scope unless the brief claims it.
+codex
+**Acceptance Criteria**
+
+The artifact satisfies the brief-stage criteria.
+
+- Problem clearly stated: yes. `Problem / Need` explains why accepted evidence still needs synthesis before downstream use.
+- Scope explicitly bounded: yes. `Rough Scope Notes` separates in-scope claim construction from out-of-scope approval, evidence acceptance, ambiguity adjudication, and forced single-claim outcomes.
+- No implementation detail: yes. The brief describes artifacts and roles, not technology, schemas, hooks, storage, or enforcement mechanics.
+- Ready to become Stage 1 Intent: yes. It is marked `BRIEF-DRAFT` and `READY FOR STAGE 1`, with open questions and dependencies named.
+- Value/risk/guardrail present: yes. Value appears in the actor outcome; risk/guardrails appear in the accepted-evidence-only constraint, no-approval boundary, no forced claims, and ambiguity referral handling.
+- Proposed artifact(s): sufficiently present. Candidate Claims, Claim-Evidence relationships, synthesis rationale, attached evidence, and Ambiguity referrals are named in scope notes.
+
+**Findings**
+
+No IN-SCOPE BLOCKER findings.
+
+Strong claims such as “never approves,” “accepted Evidence only,” and “never silently revises” are supported as stated scope boundaries in the brief itself and reinforced by the out-of-scope section. They do not claim implemented enforcement, so formal approval-binding, rollback correctness, schema validation, CI, or exact decision integrity remain out-of-scope backlog under the packet rules.
+
+No scope drift is evident. The only artifact shown is `backlog/EA-0006-claim_construction.md`, matching the manifest. The brief references EA-0004, EA-0005, Gate 1, and Gate 2, but does not modify downstream doctrine in the packet.
+
+PR decision: ADVANCE  
+Scope drift warning: no — the artifact stays within brief-stage scoping and does not introduce implementation or enforcement behavior.
+
+LOG SUMMARY: NO OBJECTION — The brief satisfies the stated stage criteria with bounded scope and no in-scope blockers.
+EVIDENCE: A
+HIGHEST-IMPACT UNCERTAINTY: The packet contains no diff or surrounding repository context, so the assessment depends entirely on the shown full-file artifact.
+tokens used
+6,378

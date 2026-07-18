@@ -1,0 +1,591 @@
+---
+review_id: REV__evidence_extraction__brief__R3
+findings:
+    - finding_id: FND__REV__evidence_extraction__brief__R3__01
+      severity: Low
+      classification: IN-SCOPE NON-BLOCKER
+      summary: "Downstream dependency claims are stronger than the packet can independently verify"
+      required_action: optional fix
+unparsed_findings_count: 0
+reviewed:
+  feature: evidence_extraction
+  stage: brief
+  branch: main
+  base_commit: (no base pin)
+  review_commit: aa5be800de44b6dd7ac02a88eddb163baf5d85ff
+  artifacts:
+    - path: backlog/EA-0004-evidence_extraction.md
+      sha256: 12e3b635a172dcdce391806c446e717983c6a5bf51efe659bf5924e30384194b
+      visibility: shown
+  diff_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  coverage_state: FULL_COVERAGE
+  workspace_dirty: true
+  redaction_count: 0
+  secret_redaction: false
+  excluded_paths: []
+  reviewed_packet: packets/20260718T051641Z-evidence_extraction-stage-brief-aa5be80.packet.txt
+  reviewed_packet_sha256: b55fd0ed2250e682a6d694f9eecf778669d5935b69c0a110c04dd37082fea695
+  reviewer: "codex (session 019f7169-b419-7e60-86ff-48b32db3502d)"
+  codex_concern: NO OBJECTION
+  effective_concern: NO OBJECTION
+  evidence: A
+  reasoning_effort: high
+  reconnect_count: 0
+  elapsed_ms: 57736
+---
+
+**Acceptance Criteria**
+
+- Problem clearly stated: satisfied. The need is explicit: without this feature, downstream work must rediscover passages and rebuild traceability from raw documents. Evidence: [backlog/EA-0004-evidence_extraction.md:11](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:11).
+- Scope explicitly bounded: satisfied. In-scope work is Candidate Evidence extraction from the approved corpus; out-of-scope work excludes new discovery, acceptance decisions, ambiguity reasoning, and claim construction. Evidence: [backlog/EA-0004-evidence_extraction.md:135](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:135), [backlog/EA-0004-evidence_extraction.md:147](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:147).
+- No implementation detail: satisfied. The brief names conceptual checks and boundaries, but no implementation technology or schema mechanics.
+- Ready to become Stage 1 Intent: satisfied. The readiness checklist is complete and the brief says `READY FOR STAGE 1`. Evidence: [backlog/EA-0004-evidence_extraction.md:155](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:155), [backlog/EA-0004-evidence_extraction.md:167](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:167).
+- Value/risk/guardrail present: satisfied. Value is traceable, reviewable evidence; guardrails include no accepted-evidence assertion and no new source discovery. Evidence: [backlog/EA-0004-evidence_extraction.md:37](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:37), [backlog/EA-0004-evidence_extraction.md:67](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:67), [backlog/EA-0004-evidence_extraction.md:97](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:97).
+- Proposed artifact(s): satisfied. The proposed output is provisional `Candidate Evidence`, with `Accepted Evidence` reserved for EA-0008. Evidence: [backlog/EA-0004-evidence_extraction.md:75](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:75), [backlog/EA-0004-evidence_extraction.md:144](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:144).
+
+**Claim Support**
+
+Strong claims about EA-0008, EA-0006, EA-0005, and AJ-003 are asserted in the brief, but those artifacts are not included in the packet. That is not blocking because the brief’s own EA-0004 behavior remains bounded and the stage allows suspected dependencies. Strong in-feature guardrails are internally supported: Candidate Evidence is provisional, acceptance belongs to EA-0008, and extraction stays inside EA-0003’s approved corpus.
+
+**Findings**
+
+Finding: Downstream dependency claims are stronger than the packet can independently verify / Severity: Low / Classification: IN-SCOPE NON-BLOCKER  
+Evidence: [backlog/EA-0004-evidence_extraction.md:23](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:23), [backlog/EA-0004-evidence_extraction.md:110](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:110), [backlog/EA-0004-evidence_extraction.md:126](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:126) / Why: The brief states AJ-003, EA-0008, EA-0006, and EA-0005 behavior as fact, but the packet only contains EA-0004. This does not break EA-0004 acceptance because suspected dependency mapping is expected at brief stage and the EA-0004 scope remains provisional/read-only. / Required action: optional fix  
+Scope reason: Dependency mapping is in scope for a Feature Brief; proving downstream artifacts is not required here unless EA-0004 claims to implement or approve their behavior.
+
+**In-Scope Blockers**
+
+No IN-SCOPE BLOCKER findings.
+
+PR decision: ADVANCE
+
+Scope drift warning: no — the artifact discusses downstream dependency context, but does not change files outside the listed artifact or expand EA-0004 beyond Candidate Evidence production.
+
+LOG SUMMARY: NO OBJECTION — The brief meets Stage Brief criteria; only downstream dependency assertions exceed packet-verifiable evidence.
+EVIDENCE: A
+HIGHEST-IMPACT UNCERTAINTY: Whether the referenced AJ-003, EA-0005, EA-0006, and EA-0008 artifacts actually match the dependency claims most affects this assessment.
+OpenAI Codex v0.142.5
+--------
+workdir: /home/rimo/projects/EvidenceAtlas
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019f7169-b419-7e60-86ff-48b32db3502d
+--------
+user
+Reviewer task:
+
+SCOPE CONTRACT
+  Assess this artifact against the STATED SCOPE of this stage/PR — the Expected Stage
+  Output below and what the artifacts actually claim — NOT against an ideal final system.
+  A capability the artifacts do not claim to provide is OUT-OF-SCOPE, not a defect.
+  The following are OUT-OF-SCOPE BACKLOG unless THIS artifact explicitly claims to provide
+  them: formal approval-binding enforcement; rollback correctness; COMMIT_BOUND/
+  WORKSPACE_BOUND enforcement; JSON Schema validation; CI validation; exact
+  decision-integrity; per-feature decision ledgers; autonomous approval; enabled hooks.
+
+YOUR TASK — answer these five questions using only the evidence in the packet:
+  1. Acceptance criteria: Does the artifact satisfy each of its stated acceptance criteria?
+     Cite evidence for each criterion (or note its absence).
+  2. Claim support: Are universal or strong claims (all, every, never, always, no X) in the
+     artifact supported by evidence in the packet? Any unverifiable strong claim is a candidate
+     finding only if it affects acceptance, scope, safety, decision integrity, or the artifact's
+     stated guarantees.
+  3. Scope drift: Is there any change beyond the stated scope boundary? (Files not in the
+     "What changes" list; behavior changes not in the intent; downstream doctrine modified
+     rather than read.)
+  4. In-scope blockers: Are there facts that, if left in, would make the artifact wrong,
+     unsafe, or internally contradictory?
+  5. Finding classification: Classify every finding you raise as exactly one of the five
+     TRIAGE RULE categories below.
+
+TRIAGE RULE — classify EVERY finding as exactly one of:
+  IN-SCOPE BLOCKER         breaks the stated goal; creates a FALSE CLAIM in this artifact;
+                           weakens the advisory/read-only/human-gated guarantees; prevents
+                           the work from running; or violates an explicit safety constraint.
+  IN-SCOPE NON-BLOCKER     improves it but is not required for this PR.
+  OUT-OF-SCOPE BACKLOG     valid, but belongs to a future feature / stronger guarantee.
+  REJECTED                 conflicts with the stated scope or Codeos philosophy.
+  SELF-REFERENCE /         review records that are stale because of the previous round's
+  REVIEW-BOOKKEEPING       own existence (causal loop); not a real artifact defect.
+  Base the PR decision ONLY on IN-SCOPE BLOCKER findings. An OUT-OF-SCOPE BACKLOG finding
+  must NOT cause DO NOT ADVANCE unless this artifact FALSELY CLAIMS to solve it.
+
+WHAT NOT TO DO
+  - Do not flag style or wording issues as blockers unless the wording creates a false claim,
+    contradiction, parser breakage, or wrong governance instruction.
+  - Do not re-review unchanged full context when the packet is in delta mode.
+  - Do not treat local-only review history as a blocker unless the artifact falsely
+    claims the review artifacts are committed/durable.
+
+INSTRUCTIONS
+  If this is a resumed session, ignore any earlier-session conclusions unless they are
+  re-established by THIS packet; assess only the evidence above, pinned to this commit.
+  Give a focused assessment of this artifact against the stated scope, acceptance criteria,
+  and evidence in this packet. Rank findings by severity. Suggest a better design only when
+  needed to explain a required fix for an IN-SCOPE BLOCKER.
+
+  Limit findings to the top 3 IN-SCOPE BLOCKERS. Additional non-blocking observations may be
+  summarized in one short paragraph only if useful.
+
+  For EACH finding emit:
+    Finding: / Severity: High|Medium|Low / Classification: <one of the TRIAGE RULE labels>
+    Evidence: <file/line> / Why: <short> / Required action: fix now|optional fix|backlog|reject
+    Scope reason: <why it does/does not belong to this PR's scope>
+  Then emit:
+    PR decision: ADVANCE | REQUEST CHANGES | DO NOT ADVANCE   (based ONLY on in-scope blockers)
+    Scope drift warning: yes|no — <is anything pulling this PR beyond its stated scope?>
+  Then on the LAST three lines emit exactly (map ADVANCE->NO OBJECTION,
+  REQUEST CHANGES->CHANGES ADVISED, DO NOT ADVANCE->DO NOT ADVANCE):
+    LOG SUMMARY: <NO OBJECTION | CHANGES ADVISED | DO NOT ADVANCE | UNCLASSIFIED> — <single most important point>
+      (use UNCLASSIFIED if you genuinely cannot classify the artifact safely)
+    EVIDENCE: <A|B|C|D|E>
+    HIGHEST-IMPACT UNCERTAINTY: <one sentence — what single thing, if wrong, most affects this assessment>
+
+  Evidence grade — the grade describes what the assessment rests on, not reviewer confidence:
+    A — Directly verified in the artifact, diff, or output shown in the packet
+    B — Verified with multiple direct pieces of evidence, but coverage is not complete
+    C — Partially verified, partially inferred from structure or context
+    D — Mostly inferred from structure or indirect evidence
+    E — Hypothesis or very limited basis — little to no direct evidence
+
+
+PACKET MANIFEST
+  generated: 2026-07-18T05:15:43Z
+  task_prompt: /home/rimo/projects/Codeos/prompts/codeos-reviewer-task.md (4959 bytes)
+  review_content_bytes: 11079
+  estimated_review_tokens: ~2769
+  budget_status: OK
+  packet_mode: full
+  delta_base: none
+  items:
+    - path: backlog/EA-0004-evidence_extraction.md
+      mode: full_file
+      bytes: 11079
+      sha256: 12e3b635a172dcdce391806c446e717983c6a5bf51efe659bf5924e30384194b
+    - path: (diff)
+      mode: full_file
+      bytes: 0
+
+REVIEW CONTEXT
+  Feature:                evidence_extraction
+  Stage:                  brief
+  Branch:                 main
+  Base commit:            (no base pin)
+  Review commit:          aa5be800de44b6dd7ac02a88eddb163baf5d85ff (+ uncommitted workspace changes)
+  Current approved stage: n/a (non-numeric stage)
+  Evidence coverage:      FULL_COVERAGE
+  Workspace dirty:        yes (uncommitted changes at review time)
+
+DBA RULES RELEVANT TO THIS STAGE
+  - Human approval is required for every stage transition; you are advisory only.
+  - Memory is not truth — assess only what is provided, pinned to the review commit.
+  - Implementation must trace to approved artifacts; no behavior beyond intent+contract+schema.
+  - No events outside the approved event schema; no hidden behavior.
+
+STAGE-SPECIFIC CHECKS
+  - problem clearly stated; scope explicitly bounded; no implementation detail; ready to become a Stage 1 Intent; value/risk/guardrail present.
+
+EXPECTED STAGE OUTPUT
+  Feature Brief — problem, upgrade, bounded scope, proposed artifact(s), value/risk/guardrail; a candidate for Stage 1, not yet approved; no implementation detail.
+
+ARTIFACTS TO REVIEW
+  --- backlog/EA-0004-evidence_extraction.md (sha256: 12e3b635a172dcdce391806c446e717983c6a5bf51efe659bf5924e30384194b, visibility: shown) ---
+    # Feature Brief: EA-0004 — Evidence Extraction
+    
+    **Slug**: evidence_extraction
+    **Type**: F-type
+    **Refines**: n/a
+    **Tier**: 0 — Foundational (fourth domain feature; depends only on EA-0003)
+    **Status**: BRIEF-DRAFT
+    
+    ---
+    
+    ## Problem / Need
+    
+    A research corpus is just collected material — nobody can yet point to which passage
+    supports which idea, or why it was worth collecting at all. Without this feature, every
+    downstream stage would have to independently rediscover relevant passages, interpret them,
+    and reconstruct why they matter to the investigation: evidence selection becomes
+    inconsistent across attempts, traceability back to source material becomes fragile, and
+    claim construction would have to start from raw documents instead of explicit, reviewable
+    evidence.
+    
+    ## Primary Actor
+    
+    **Correction (2026-07-18, per Architecture Journal AJ-003):** the actor for this feature is
+    the **Knowledge Reviewer** — a single role that also covers what EA-0005 and EA-0006
+    separately called "Ambiguity Reviewer" and "Claim Reviewer." (This section previously named
+    a standalone "Evidence Reviewer"; that name is retired in favor of the unified role.) The
+    Knowledge Reviewer's question here specifically is whether a proposed candidate evidence
+    item is suitable to enter the project's evidence base — a different question from what the
+    same role asks when reviewing a claim or an ambiguity, but the same role, not a separate
+    actor. Today, without this feature, that evaluation can't happen at all — the reviewer
+    would have to search raw documents, choose passages, interpret them, and reconstruct
+    relevance themselves, which is exactly the duplicated, inconsistent work this feature
+    exists to remove.
+    
+    ## Core Outcome (informal)
+    
+    The Knowledge Reviewer can efficiently determine whether a proposed candidate evidence item
+    is suitable to become part of the project's evidence base — without having to reconstruct
+    the research process or rediscover the supporting material themselves. The feature has
+    already done the expensive preparation (locating the passage, capturing it faithfully,
+    interpreting it, and explaining why it belongs to the investigation); the reviewer's job
+    becomes evaluation, not investigation. Concretely, that single "fit for acceptance"
+    decision rests on three distinguishable questions later Stage 1/2 work should keep
+    separate: was the right passage *selected* for this Research Question, does the
+    *interpretation* stay grounded in what the passage actually says, and does that
+    interpretation actually *advance* the Research Question it's linked to. This feature
+    doesn't decide any of the three — it produces evidence structured so the Knowledge
+    Reviewer, through EA-0008 (Knowledge Review), can decide efficiently.
+    
+    ## Design Tensions and Open Questions
+    
+    1. **Should this be one feature, or split into passage-selection and interpretation?**
+       [Resolved: one feature. The deciding test is the same one that justified splitting
+       EA-0002 from EA-0003: does the earlier stopping point have independent actor value? A
+       Research Plan does — an editor can review a strategy before spending resources. A pile
+       of highlighted-but-uninterpreted passages doesn't — no reviewer benefits from evaluating
+       spans of text with no sense of what they're claimed to support. A future split would be
+       scalability-driven (very large corpora, separate retrieval models, passage reuse across
+       many interpretations at scale), not a mechanical-vs-interpretive one — not applicable for
+       v1.]
+    2. **Where's the line between this feature's self-verification and EA-0008's (Knowledge
+       Review's) acceptance decision?** [Resolved as a principle: this feature may only verify
+       narrow, structural/grounding properties — the source belongs to the approved corpus, the
+       locator resolves to the cited passage, the excerpt is faithful and unaltered (truncation
+       disclosed), sufficient context was captured, required fields are present, the
+       interpretation doesn't visibly introduce facts absent from the source, and
+       duplicate/overlapping records are flagged. It may never assert that a candidate is
+       *accepted* — only that it's structurally complete and apparently grounded. The "visibly
+       introduce unsupported facts" check sits closest to the line, since it requires some
+       semantic comparison, not pure structure-checking — flagged for Stage 1/2 to tighten if
+       needed. Everything about substantive acceptance (does the interpretation actually hold
+       up, is it too broad, are qualifications missing, accept/reject/return-for-revision)
+       belongs to EA-0008 (Knowledge Review), owned by the Knowledge Reviewer. These are
+       recorded here as **assumptions requiring validation by that brief**, not decisions this
+       feature owns — this feature produces Candidate Evidence; only EA-0008 produces Accepted
+       Evidence.]
+    3. **What happens when no passage can be found for a Research Question?** [Resolved:
+       report it explicitly as an investigation finding, not a retrieval failure — e.g. "no
+       candidate evidence identified in the approved corpus for RQ-3." This says nothing about
+       reality, only about what this corpus contains, and is itself valuable information rather
+       than an error to hide.]
+    4. **What happens when one passage is relevant to multiple Research Questions?**
+       [Resolved: extract once, link to many — a single candidate evidence item can reference
+       several Research Questions rather than being duplicated per question. Duplicating it
+       would create multiple copies of the same evidence that could drift independently, the
+       same "multiple mutable sources of truth" risk already flagged architecturally in
+       `docs/solution-discovery-evidenceatlas.md`.]
+    5. **How should corroboration between independent sources be distinguished from mechanical
+       duplication?** [Resolved as a principle: this feature may recognize mechanical
+       duplication (e.g. a wire-service article republished verbatim) but must not collapse
+       independent agreement between genuinely distinct sources into "duplicate" — that
+       agreement is valuable signal for later stages, not redundancy. This feature doesn't
+       reason about *what* corroboration means or aggregate it; it only avoids destroying the
+       distinction. **Open nuance:** telling "mechanically identical/republished" apart from
+       "independently produced but agreeing" is itself a judgment call that isn't fully
+       specified here — left for Stage 2 to define concretely.]
+    6. **Does this feature do any new source discovery?** [Resolved: no, hard boundary. It
+       operates only over the already-approved Research Corpus from EA-0003 — no web search,
+       no new crawling, no "just one more source." Crossing this boundary would make the
+       provenance chain impossible to reconstruct.]
+    7. **Naming:** the feature name "Evidence Extraction" stays workable (it matches the
+       discovery doc's existing vocabulary — Evidence is already defined as excerpt +
+       interpretation), but its *output* should use provisional language (e.g. "Candidate
+       Evidence") rather than implying accepted evidence emerges automatically.
+    
+    ## Suspected Dependencies
+    
+    Upstream: EA-0003 (Research Corpus + Research Execution Report) only.
+    
+    Downstream (hard): EA-0008 (Knowledge Review) consumes Candidate Evidence directly, and its
+    Knowledge Reviewer evaluates it. The accept/reject/return-for-revision behavior, and the
+    expectation that any revised interpretation produces a traceable new version rather than a
+    silent rewrite, are owned by EA-0008, not this feature.
+    
+    **Correction (2026-07-17, during EA-0006 Round 0; actor/feature names updated 2026-07-18
+    per AJ-003):** Claim Construction (EA-0006) does **not** consume Candidate Evidence
+    directly, despite what an earlier version of this section said. It consumes **Accepted
+    Evidence**, the artifact state produced once EA-0008 (Knowledge Review) accepts a
+    candidate — otherwise unreviewed, possibly-hallucinated candidates could influence claim
+    synthesis before the human acceptance step meant to catch that. The chain is: this feature
+    produces Candidate Evidence → EA-0008 (Knowledge Review) produces Accepted Evidence →
+    EA-0006 (Claim Construction) consumes Accepted Evidence. EA-0006's dependency on this
+    feature's output is indirect, mediated through EA-0008's acceptance decision, not a direct
+    dependency on Candidate Evidence itself.
+    
+    Downstream (soft): EA-0005 (Ambiguity Construction) is the deliberate exception to the
+    correction above — its pre-claim path explicitly accepts manually-referred Candidate
+    Evidence pairs directly from this feature, without requiring EA-0008's acceptance first,
+    since that path is explicitly analytical/provisional (it can conclude "no real conflict" or
+    "insufficient context") and doesn't promote those candidates into the accepted evidence
+    base. Not a hard dependency in the sense of being required for this feature to run, but
+    worth keeping in mind, since `initiate.md`'s original contradiction-handling flow only
+    considered ambiguity emerging at the claim level.
+    
+    ## Rough Scope Notes
+    
+    In scope (rough): locating candidate passages relevant to the approved Research Questions,
+    within the approved Research Corpus only; capturing exact excerpts with resolvable
+    provenance and sufficient context; producing a bounded interpretation per passage plus a
+    short selection rationale explaining why it belongs to the investigation; linking each
+    candidate evidence item to one or more Research Questions; running the narrow structural/
+    grounding preflight checks listed above; explicitly reporting when no candidate evidence is
+    found for a Research Question; recognizing mechanical duplication while preserving
+    corroboration signal; emitting results as provisional Candidate Evidence pending
+    acceptance.
+    
+    Out of scope (rough): any new source discovery, web search, or crawling (stays inside
+    EA-0003's boundary); the substantive acceptance decision (accept/reject/revise — belongs to
+    EA-0008, Knowledge Review); contradiction or ambiguity reasoning; claim
+    construction; reasoning about what corroboration *means* or aggregating corroborating
+    evidence (a later feature's job — this feature only preserves the distinction from
+    duplication); canonical ownership of the "Evidence Category" vocabulary term (left
+    intentionally open per EA-0002, for the same premature-ontology reason).
+    
+    ## Readiness Check
+    
+    - [x] The problem statement explains WHY, not HOW
+    - [x] The primary actor is a human role, not "the system"
+    - [x] The core outcome is stated from the actor's perspective
+    - [x] At least one open question is listed (seven listed)
+    - [x] Suspected dependencies are named (even if marked uncertain)
+    - [x] No actor+outcome DBA form appears anywhere in this brief
+    - [x] No stable guarantees or DBA scope boundaries appear in this brief
+    - [x] The feature can be described without mentioning implementation technology
+    - [x] (R-type only) — n/a, this is F-type
+    
+    **Brief status**: READY FOR STAGE 1
+    
+    ---
+    
+    <!-- METADATA -->
+    brief_created: 2026-07-17
+    brief_last_updated: 2026-07-17
+    stage1_started:
+
+DIFF TO REVIEW (base->review, secret/size filtered)
+
+codex
+I’ll verify the local artifact hash against the packet and use it only to recover line numbers for the review citations.
+exec
+/bin/bash -lc 'sha256sum backlog/EA-0004-evidence_extraction.md' in /home/rimo/projects/EvidenceAtlas
+ succeeded in 0ms:
+12e3b635a172dcdce391806c446e717983c6a5bf51efe659bf5924e30384194b  backlog/EA-0004-evidence_extraction.md
+
+exec
+/bin/bash -lc "nl -ba backlog/EA-0004-evidence_extraction.md | sed -n '1,190p'" in /home/rimo/projects/EvidenceAtlas
+ succeeded in 0ms:
+     1	# Feature Brief: EA-0004 — Evidence Extraction
+     2	
+     3	**Slug**: evidence_extraction
+     4	**Type**: F-type
+     5	**Refines**: n/a
+     6	**Tier**: 0 — Foundational (fourth domain feature; depends only on EA-0003)
+     7	**Status**: BRIEF-DRAFT
+     8	
+     9	---
+    10	
+    11	## Problem / Need
+    12	
+    13	A research corpus is just collected material — nobody can yet point to which passage
+    14	supports which idea, or why it was worth collecting at all. Without this feature, every
+    15	downstream stage would have to independently rediscover relevant passages, interpret them,
+    16	and reconstruct why they matter to the investigation: evidence selection becomes
+    17	inconsistent across attempts, traceability back to source material becomes fragile, and
+    18	claim construction would have to start from raw documents instead of explicit, reviewable
+    19	evidence.
+    20	
+    21	## Primary Actor
+    22	
+    23	**Correction (2026-07-18, per Architecture Journal AJ-003):** the actor for this feature is
+    24	the **Knowledge Reviewer** — a single role that also covers what EA-0005 and EA-0006
+    25	separately called "Ambiguity Reviewer" and "Claim Reviewer." (This section previously named
+    26	a standalone "Evidence Reviewer"; that name is retired in favor of the unified role.) The
+    27	Knowledge Reviewer's question here specifically is whether a proposed candidate evidence
+    28	item is suitable to enter the project's evidence base — a different question from what the
+    29	same role asks when reviewing a claim or an ambiguity, but the same role, not a separate
+    30	actor. Today, without this feature, that evaluation can't happen at all — the reviewer
+    31	would have to search raw documents, choose passages, interpret them, and reconstruct
+    32	relevance themselves, which is exactly the duplicated, inconsistent work this feature
+    33	exists to remove.
+    34	
+    35	## Core Outcome (informal)
+    36	
+    37	The Knowledge Reviewer can efficiently determine whether a proposed candidate evidence item
+    38	is suitable to become part of the project's evidence base — without having to reconstruct
+    39	the research process or rediscover the supporting material themselves. The feature has
+    40	already done the expensive preparation (locating the passage, capturing it faithfully,
+    41	interpreting it, and explaining why it belongs to the investigation); the reviewer's job
+    42	becomes evaluation, not investigation. Concretely, that single "fit for acceptance"
+    43	decision rests on three distinguishable questions later Stage 1/2 work should keep
+    44	separate: was the right passage *selected* for this Research Question, does the
+    45	*interpretation* stay grounded in what the passage actually says, and does that
+    46	interpretation actually *advance* the Research Question it's linked to. This feature
+    47	doesn't decide any of the three — it produces evidence structured so the Knowledge
+    48	Reviewer, through EA-0008 (Knowledge Review), can decide efficiently.
+    49	
+    50	## Design Tensions and Open Questions
+    51	
+    52	1. **Should this be one feature, or split into passage-selection and interpretation?**
+    53	   [Resolved: one feature. The deciding test is the same one that justified splitting
+    54	   EA-0002 from EA-0003: does the earlier stopping point have independent actor value? A
+    55	   Research Plan does — an editor can review a strategy before spending resources. A pile
+    56	   of highlighted-but-uninterpreted passages doesn't — no reviewer benefits from evaluating
+    57	   spans of text with no sense of what they're claimed to support. A future split would be
+    58	   scalability-driven (very large corpora, separate retrieval models, passage reuse across
+    59	   many interpretations at scale), not a mechanical-vs-interpretive one — not applicable for
+    60	   v1.]
+    61	2. **Where's the line between this feature's self-verification and EA-0008's (Knowledge
+    62	   Review's) acceptance decision?** [Resolved as a principle: this feature may only verify
+    63	   narrow, structural/grounding properties — the source belongs to the approved corpus, the
+    64	   locator resolves to the cited passage, the excerpt is faithful and unaltered (truncation
+    65	   disclosed), sufficient context was captured, required fields are present, the
+    66	   interpretation doesn't visibly introduce facts absent from the source, and
+    67	   duplicate/overlapping records are flagged. It may never assert that a candidate is
+    68	   *accepted* — only that it's structurally complete and apparently grounded. The "visibly
+    69	   introduce unsupported facts" check sits closest to the line, since it requires some
+    70	   semantic comparison, not pure structure-checking — flagged for Stage 1/2 to tighten if
+    71	   needed. Everything about substantive acceptance (does the interpretation actually hold
+    72	   up, is it too broad, are qualifications missing, accept/reject/return-for-revision)
+    73	   belongs to EA-0008 (Knowledge Review), owned by the Knowledge Reviewer. These are
+    74	   recorded here as **assumptions requiring validation by that brief**, not decisions this
+    75	   feature owns — this feature produces Candidate Evidence; only EA-0008 produces Accepted
+    76	   Evidence.]
+    77	3. **What happens when no passage can be found for a Research Question?** [Resolved:
+    78	   report it explicitly as an investigation finding, not a retrieval failure — e.g. "no
+    79	   candidate evidence identified in the approved corpus for RQ-3." This says nothing about
+    80	   reality, only about what this corpus contains, and is itself valuable information rather
+    81	   than an error to hide.]
+    82	4. **What happens when one passage is relevant to multiple Research Questions?**
+    83	   [Resolved: extract once, link to many — a single candidate evidence item can reference
+    84	   several Research Questions rather than being duplicated per question. Duplicating it
+    85	   would create multiple copies of the same evidence that could drift independently, the
+    86	   same "multiple mutable sources of truth" risk already flagged architecturally in
+    87	   `docs/solution-discovery-evidenceatlas.md`.]
+    88	5. **How should corroboration between independent sources be distinguished from mechanical
+    89	   duplication?** [Resolved as a principle: this feature may recognize mechanical
+    90	   duplication (e.g. a wire-service article republished verbatim) but must not collapse
+    91	   independent agreement between genuinely distinct sources into "duplicate" — that
+    92	   agreement is valuable signal for later stages, not redundancy. This feature doesn't
+    93	   reason about *what* corroboration means or aggregate it; it only avoids destroying the
+    94	   distinction. **Open nuance:** telling "mechanically identical/republished" apart from
+    95	   "independently produced but agreeing" is itself a judgment call that isn't fully
+    96	   specified here — left for Stage 2 to define concretely.]
+    97	6. **Does this feature do any new source discovery?** [Resolved: no, hard boundary. It
+    98	   operates only over the already-approved Research Corpus from EA-0003 — no web search,
+    99	   no new crawling, no "just one more source." Crossing this boundary would make the
+   100	   provenance chain impossible to reconstruct.]
+   101	7. **Naming:** the feature name "Evidence Extraction" stays workable (it matches the
+   102	   discovery doc's existing vocabulary — Evidence is already defined as excerpt +
+   103	   interpretation), but its *output* should use provisional language (e.g. "Candidate
+   104	   Evidence") rather than implying accepted evidence emerges automatically.
+   105	
+   106	## Suspected Dependencies
+   107	
+   108	Upstream: EA-0003 (Research Corpus + Research Execution Report) only.
+   109	
+   110	Downstream (hard): EA-0008 (Knowledge Review) consumes Candidate Evidence directly, and its
+   111	Knowledge Reviewer evaluates it. The accept/reject/return-for-revision behavior, and the
+   112	expectation that any revised interpretation produces a traceable new version rather than a
+   113	silent rewrite, are owned by EA-0008, not this feature.
+   114	
+   115	**Correction (2026-07-17, during EA-0006 Round 0; actor/feature names updated 2026-07-18
+   116	per AJ-003):** Claim Construction (EA-0006) does **not** consume Candidate Evidence
+   117	directly, despite what an earlier version of this section said. It consumes **Accepted
+   118	Evidence**, the artifact state produced once EA-0008 (Knowledge Review) accepts a
+   119	candidate — otherwise unreviewed, possibly-hallucinated candidates could influence claim
+   120	synthesis before the human acceptance step meant to catch that. The chain is: this feature
+   121	produces Candidate Evidence → EA-0008 (Knowledge Review) produces Accepted Evidence →
+   122	EA-0006 (Claim Construction) consumes Accepted Evidence. EA-0006's dependency on this
+   123	feature's output is indirect, mediated through EA-0008's acceptance decision, not a direct
+   124	dependency on Candidate Evidence itself.
+   125	
+   126	Downstream (soft): EA-0005 (Ambiguity Construction) is the deliberate exception to the
+   127	correction above — its pre-claim path explicitly accepts manually-referred Candidate
+   128	Evidence pairs directly from this feature, without requiring EA-0008's acceptance first,
+   129	since that path is explicitly analytical/provisional (it can conclude "no real conflict" or
+   130	"insufficient context") and doesn't promote those candidates into the accepted evidence
+   131	base. Not a hard dependency in the sense of being required for this feature to run, but
+   132	worth keeping in mind, since `initiate.md`'s original contradiction-handling flow only
+   133	considered ambiguity emerging at the claim level.
+   134	
+   135	## Rough Scope Notes
+   136	
+   137	In scope (rough): locating candidate passages relevant to the approved Research Questions,
+   138	within the approved Research Corpus only; capturing exact excerpts with resolvable
+   139	provenance and sufficient context; producing a bounded interpretation per passage plus a
+   140	short selection rationale explaining why it belongs to the investigation; linking each
+   141	candidate evidence item to one or more Research Questions; running the narrow structural/
+   142	grounding preflight checks listed above; explicitly reporting when no candidate evidence is
+   143	found for a Research Question; recognizing mechanical duplication while preserving
+   144	corroboration signal; emitting results as provisional Candidate Evidence pending
+   145	acceptance.
+   146	
+   147	Out of scope (rough): any new source discovery, web search, or crawling (stays inside
+   148	EA-0003's boundary); the substantive acceptance decision (accept/reject/revise — belongs to
+   149	EA-0008, Knowledge Review); contradiction or ambiguity reasoning; claim
+   150	construction; reasoning about what corroboration *means* or aggregating corroborating
+   151	evidence (a later feature's job — this feature only preserves the distinction from
+   152	duplication); canonical ownership of the "Evidence Category" vocabulary term (left
+   153	intentionally open per EA-0002, for the same premature-ontology reason).
+   154	
+   155	## Readiness Check
+   156	
+   157	- [x] The problem statement explains WHY, not HOW
+   158	- [x] The primary actor is a human role, not "the system"
+   159	- [x] The core outcome is stated from the actor's perspective
+   160	- [x] At least one open question is listed (seven listed)
+   161	- [x] Suspected dependencies are named (even if marked uncertain)
+   162	- [x] No actor+outcome DBA form appears anywhere in this brief
+   163	- [x] No stable guarantees or DBA scope boundaries appear in this brief
+   164	- [x] The feature can be described without mentioning implementation technology
+   165	- [x] (R-type only) — n/a, this is F-type
+   166	
+   167	**Brief status**: READY FOR STAGE 1
+   168	
+   169	---
+   170	
+   171	<!-- METADATA -->
+   172	brief_created: 2026-07-17
+   173	brief_last_updated: 2026-07-17
+   174	stage1_started:
+
+codex
+**Acceptance Criteria**
+
+- Problem clearly stated: satisfied. The need is explicit: without this feature, downstream work must rediscover passages and rebuild traceability from raw documents. Evidence: [backlog/EA-0004-evidence_extraction.md:11](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:11).
+- Scope explicitly bounded: satisfied. In-scope work is Candidate Evidence extraction from the approved corpus; out-of-scope work excludes new discovery, acceptance decisions, ambiguity reasoning, and claim construction. Evidence: [backlog/EA-0004-evidence_extraction.md:135](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:135), [backlog/EA-0004-evidence_extraction.md:147](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:147).
+- No implementation detail: satisfied. The brief names conceptual checks and boundaries, but no implementation technology or schema mechanics.
+- Ready to become Stage 1 Intent: satisfied. The readiness checklist is complete and the brief says `READY FOR STAGE 1`. Evidence: [backlog/EA-0004-evidence_extraction.md:155](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:155), [backlog/EA-0004-evidence_extraction.md:167](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:167).
+- Value/risk/guardrail present: satisfied. Value is traceable, reviewable evidence; guardrails include no accepted-evidence assertion and no new source discovery. Evidence: [backlog/EA-0004-evidence_extraction.md:37](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:37), [backlog/EA-0004-evidence_extraction.md:67](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:67), [backlog/EA-0004-evidence_extraction.md:97](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:97).
+- Proposed artifact(s): satisfied. The proposed output is provisional `Candidate Evidence`, with `Accepted Evidence` reserved for EA-0008. Evidence: [backlog/EA-0004-evidence_extraction.md:75](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:75), [backlog/EA-0004-evidence_extraction.md:144](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:144).
+
+**Claim Support**
+
+Strong claims about EA-0008, EA-0006, EA-0005, and AJ-003 are asserted in the brief, but those artifacts are not included in the packet. That is not blocking because the brief’s own EA-0004 behavior remains bounded and the stage allows suspected dependencies. Strong in-feature guardrails are internally supported: Candidate Evidence is provisional, acceptance belongs to EA-0008, and extraction stays inside EA-0003’s approved corpus.
+
+**Findings**
+
+Finding: Downstream dependency claims are stronger than the packet can independently verify / Severity: Low / Classification: IN-SCOPE NON-BLOCKER  
+Evidence: [backlog/EA-0004-evidence_extraction.md:23](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:23), [backlog/EA-0004-evidence_extraction.md:110](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:110), [backlog/EA-0004-evidence_extraction.md:126](/home/rimo/projects/EvidenceAtlas/backlog/EA-0004-evidence_extraction.md:126) / Why: The brief states AJ-003, EA-0008, EA-0006, and EA-0005 behavior as fact, but the packet only contains EA-0004. This does not break EA-0004 acceptance because suspected dependency mapping is expected at brief stage and the EA-0004 scope remains provisional/read-only. / Required action: optional fix  
+Scope reason: Dependency mapping is in scope for a Feature Brief; proving downstream artifacts is not required here unless EA-0004 claims to implement or approve their behavior.
+
+**In-Scope Blockers**
+
+No IN-SCOPE BLOCKER findings.
+
+PR decision: ADVANCE
+
+Scope drift warning: no — the artifact discusses downstream dependency context, but does not change files outside the listed artifact or expand EA-0004 beyond Candidate Evidence production.
+
+LOG SUMMARY: NO OBJECTION — The brief meets Stage Brief criteria; only downstream dependency assertions exceed packet-verifiable evidence.
+EVIDENCE: A
+HIGHEST-IMPACT UNCERTAINTY: Whether the referenced AJ-003, EA-0005, EA-0006, and EA-0008 artifacts actually match the dependency claims most affects this assessment.
+tokens used
+47,053
